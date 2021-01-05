@@ -3,42 +3,45 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
         <title>Daily Routine Checklist</title>
     </head>
     <body>
-        <h1 id="heading">Daily Checklist</h1>
-        <div id="morning" class="column">
-            <h2>Morning</h2>
-            <form action="/action_page.php" method="get">
-                <input type="checkbox" name="vehicle1" value="Bike" />
-                <label for="vehicle1"> I have a bike</label><br />
-                <input type="checkbox" name="vehicle2" value="Car" />
-                <label for="vehicle2"> I have a car</label><br />
-                <input type="checkbox" name="vehicle3" value="Boat" checked />
-                <label for="vehicle3"> I have a boat</label><br /><br />
-            </form>
-        </div>
-        <div id="day" class="column">
-            <h2>Day</h2>
-            <form action="/action_page.php" method="get">
-                <input type="checkbox" name="vehicle1" value="Bike" />
-                <label for="vehicle1"> I have a bike</label><br />
-                <input type="checkbox" name="vehicle2" value="Car" />
-                <label for="vehicle2"> I have a car</label><br />
-                <input type="checkbox" name="vehicle3" value="Boat" checked />
-                <label for="vehicle3"> I have a boat</label><br /><br />
-            </form>
-        </div>
-        <div id="evening" class="column">
-            <h2>Evening</h2>
-            <form action="/action_page.php" method="get">
-                <input type="checkbox" name="vehicle1" value="Bike" />
-                <label for="vehicle1"> I have a bike</label><br />
-                <input type="checkbox" name="vehicle2" value="Car" />
-                <label for="vehicle2"> I have a car</label><br />
-                <input type="checkbox" name="vehicle3" value="Boat" checked />
-                <label for="vehicle3"> I have a boat</label><br /><br />
-            </form>
+        <h1 class="heading">Daily Checklist</h1>
+        <div id="grid-container">
+            <div id="morning" class="column ">
+                <h2 class="heading">Morning</h2>
+                <form action="/action_page.php" method="get">
+                    <input type="checkbox" name="vehicle1" value="Bike" />
+                    <label for="vehicle1"> I have a bike</label><br />
+                    <input type="checkbox" name="vehicle2" value="Car" />
+                    <label for="vehicle2"> I have a car</label><br />
+                    <input type="checkbox" name="vehicle3" value="Boat" checked />
+                    <label for="vehicle3"> I have a boat</label><br /><br />
+                </form>
+            </div>
+            <div id="day" class="column">
+                <h2 class="heading">Day</h2>
+                <form action="/action_page.php" method="get">
+                    <input type="checkbox" name="vehicle1" value="Bike" />
+                    <label for="vehicle1"> I have a bike</label><br />
+                    <input type="checkbox" name="vehicle2" value="Car" />
+                    <label for="vehicle2"> I have a car</label><br />
+                    <input type="checkbox" name="vehicle3" value="Boat" checked />
+                    <label for="vehicle3"> I have a boat</label><br /><br />
+                </form>
+            </div>
+            <div id="evening" class="column">
+                <h2 class="heading">Evening</h2>
+                <form action="/action_page.php" method="get">
+                    <input type="checkbox" name="vehicle1" value="Bike" />
+                    <label for="vehicle1"> I have a bike</label><br />
+                    <input type="checkbox" name="vehicle2" value="Car" />
+                    <label for="vehicle2"> I have a car</label><br />
+                    <input type="checkbox" name="vehicle3" value="Boat" checked />
+                    <label for="vehicle3"> I have a boat</label><br /><br />
+                </form>
+            </div>
         </div>
     </body>
 </html>
