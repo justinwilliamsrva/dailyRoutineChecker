@@ -17,29 +17,31 @@
     }
 ul{margin:0}
 .column > :first-child{
+    padding-bottom: 10px;
 
     border-bottom:1px solid blue
 }
 }
 @media only screen and (min-width: 600px) {
 body{
-    height: 100%;
-    width: 100%;
+    height: 99%;
+    width: 99%;
     box-sizing: border-box;
 }
 *{box-sizing: inherit;}
 
 .heading {
     text-align: center;
-    height:10vh;
+
 
 }
+#title{height:10vh;}
 
 #grid-container{
     display: grid;
     grid-template-columns: auto auto auto;
-    margin: 0% 10%;
-    height: 90vh;
+    max-width: 100%;
+    height: 75vh;
 
 }
 
