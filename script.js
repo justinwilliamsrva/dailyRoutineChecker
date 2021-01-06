@@ -1,7 +1,7 @@
 // Arrays
 let morning = [
-    "coding",
-    "milk",
+    "Coding",
+    "Milk",
     "Breakfast base",
     "Dishwasher",
     "Sausage",
@@ -33,15 +33,21 @@ let evening = [
     "litter",
     "kitchen",
     "dishwasher",
+    "coding",
 ]
+
+
+
 // Adding to ul
 let morningList = document.getElementById("morning-list");
 let dayList = document.getElementById("day-list");
 let eveningList = document.getElementById("evening-list");
 
+
 morning.map(addList);
 day.map(addListDay);
 evening.map(addListNight);
+
 
 
 function addList(item) {
