@@ -30,7 +30,6 @@ let evening = [
     "computer room",
     "bathroom",
     "tea",
-    "litter",
     "kitchen",
     "dishwasher",
     "coding",
