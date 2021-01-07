@@ -1,5 +1,6 @@
 // Arrays
 let morning = [
+    "water",
     "Coding",
     "Milk",
     "Breakfast base",
@@ -35,17 +36,26 @@ let evening = [
     "coding",
 ]
 
+// Capitalize
+let morningCap = morning.map(capital)
+let dayCap = day.map(capital)
+let eveningCap = evening.map(capital)
 
+function capital(item) {
 
+    let str = item[0].toUpperCase() + item.slice(1);
+    return str;
+}
 // Adding to ul
 let morningList = document.getElementById("morning-list");
 let dayList = document.getElementById("day-list");
 let eveningList = document.getElementById("evening-list");
 
 
-morning.map(addList);
-day.map(addListDay);
-evening.map(addListNight);
+
+morningCap.map(addList);
+dayCap.map(addListDay);
+eveningCap.map(addListNight);
 
 
 
@@ -67,3 +77,9 @@ function addListNight(item) {
 
     eveningList.append(li);
 }
+
+
+let array = ["evil","moth"]
+console.log(array.map(capital))
+
+
