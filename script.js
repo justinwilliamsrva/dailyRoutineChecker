@@ -1,5 +1,6 @@
 // Arrays
 let morning = [
+    "morning",
     "water",
     "Coding",
     "Milk",
@@ -17,12 +18,16 @@ let morning = [
     "Lunch",
 ];
 let day = [
+    "day",
+    "water",
     "lesson plans",
     "emails",
-    "mail goals",
+    "main goals",
 ]
 let evening = [
+    "evening",
     "exercise",
+    "water",
     "milk",
     "litter",
     "laundry",
@@ -46,33 +51,45 @@ function capital(item) {
     let str = item[0].toUpperCase() + item.slice(1);
     return str;
 }
-// Adding to ul
+// Adding checkboxes to form
 let morningList = document.getElementById("morning-list");
 let dayList = document.getElementById("day-list");
 let eveningList = document.getElementById("evening-list");
-morningCap.map(addList);
-dayCap.map(addListDay);
-eveningCap.map(addListNight);
-function addList(item) {
-    let input = document.createElement("input");
-    input.setAttribute("type", "checkbox");
-    let label = document.createElement("label");
-    label.innerHTML = item;
-    let br = document.createElement("br")
-    morningList.append(input);
-    morningList.append(label);
-    morningList.append(br) ;
+addToPage(morningCap)
+addToPage(dayCap)
+addToPage(eveningCap)
+
+function addToPage(arr) {
+
+    for (let i = 1; i < arr.length; i++) {
+
+        let input = document.createElement("input");
+        input.setAttribute("type", "checkbox");
+        let label = document.createElement("label");
+        label.innerHTML = arr[i];
+        let br = document.createElement("br")
+
+        switch (arr[0]) {
+            case "Morning":
+                morningList.append(input);
+                morningList.append(label);
+                morningList.append(br);
+                break;
+            case "Day":
+                dayList.append(input);
+                dayList.append(label);
+                dayList.append(br);
+                break;
+            case "Evening":
+                eveningList.append(input);
+                eveningList.append(label);
+                eveningList.append(br);
+    }
+    }
+
+
 }
-function addListDay(item) {
-    let li = document.createElement("li");
-    li.innerHTML = item;
-    dayList.append(li);
-}
-function addListNight(item) {
-    let li = document.createElement("li");
-    li.innerHTML = item;
-    eveningList.append(li);
-}
+
 
 
 
