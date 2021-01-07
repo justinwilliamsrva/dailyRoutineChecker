@@ -21,7 +21,14 @@ ul{margin:0}
 
     border-bottom:1px solid blue
 }
+.form{
+
+    display:block;
 }
+
+}
+
+
 @media only screen and (min-width: 600px) {
 body{
     height: 99%;
@@ -52,6 +59,11 @@ body{
 
     border-right:1px solid blue ;
 
+}
+
+.form{
+
+    display:block;
 }
 
 }

@@ -50,36 +50,31 @@ function capital(item) {
 let morningList = document.getElementById("morning-list");
 let dayList = document.getElementById("day-list");
 let eveningList = document.getElementById("evening-list");
-
-
-
 morningCap.map(addList);
 dayCap.map(addListDay);
 eveningCap.map(addListNight);
-
-
-
 function addList(item) {
-    let li = document.createElement("li");
-    li.innerHTML = item;
-
-    morningList.append(li);
+    let input = document.createElement("input");
+    input.setAttribute("type", "checkbox");
+    let label = document.createElement("label");
+    label.innerHTML = item;
+    let br = document.createElement("br")
+    morningList.append(input);
+    morningList.append(label);
+    morningList.append(br) ;
 }
 function addListDay(item) {
     let li = document.createElement("li");
     li.innerHTML = item;
-
     dayList.append(li);
 }
 function addListNight(item) {
     let li = document.createElement("li");
     li.innerHTML = item;
-
     eveningList.append(li);
 }
 
 
-let array = ["evil","moth"]
-console.log(array.map(capital))
+
 
 
