@@ -65,6 +65,7 @@ function addToPage(arr) {
 
         let input = document.createElement("input");
         input.setAttribute("type", "checkbox");
+        input.setAttribute("id",arr[0]+i)
         let label = document.createElement("label");
         label.innerHTML = arr[i];
         let br = document.createElement("br")
