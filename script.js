@@ -57,7 +57,7 @@ function addToPage(arr) {
     for (let i = 1; i < arr.length; i++) {
         let input = document.createElement("input");
         input.setAttribute("type", "checkbox");
-        input.setAttribute("id", arr[0] + i);
+        input.setAttribute("name", arr[0]);
         let label = document.createElement("label");
         label.innerHTML = arr[i];
         let br = document.createElement("br");
@@ -82,37 +82,42 @@ function addToPage(arr) {
 }
 
 // Create Array for Local Storage
-let morningArr = [];
-let dayArr = [];
-let eveningArr = [];
-function createArray(arr) {
-    switch (arr[0]) {
-        case "Morning":
-            morningCap.forEach(morningArray);
-            break;
-        case "Day":
-            dayCap.forEach(dayArray);
 
-            break;
-        case "Evening":
-            eveningCap.forEach(eveningArray);
+var checkboxesChecked = [];
+function getCheckedBoxes(chkboxName) {
+    var checkboxes = document.getElementsByName(chkboxName);
 
-    }
+  // loop over them all
+  for (var i=1; i<checkboxes.length; i++) {
+     // And stick the checked ones onto an array...
+     if (checkboxes[i].checked) {
+        checkboxesChecked[i]= 1;
+     }
+     else {
+        checkboxesChecked[i]= 0;
+
+      }
+  }
+  // Return the array if it is non-empty, or null
+//   return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+    console.log(checkboxesChecked)
 
 }
-function morningArray(){
-    morningArr.push(0);
-}
-function dayArray(){
-    dayArr.push(0);
-}
-function eveningArray(){
-    eveningArr.push(0);
+
+// Call as
+
+
+var mornClick = document.getElementById("morning");
+mornClick.addEventListener("click",alerts );
+
+
+
+function alerts() {
+
+    getCheckedBoxes("Morning")
 }
 
-createArray(morningCap)
-createArray(dayCap)
-createArray(eveningCap)
+
 
 
 
