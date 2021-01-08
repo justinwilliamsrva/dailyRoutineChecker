@@ -52,12 +52,14 @@ let eveningList = document.getElementById("evening-list");
 addToPage(morningCap);
 addToPage(dayCap);
 addToPage(eveningCap);
+checkCheck();
 
 function addToPage(arr) {
     for (let i = 1; i < arr.length; i++) {
         let input = document.createElement("input");
         input.setAttribute("type", "checkbox");
         input.setAttribute("name", arr[0]);
+        input.setAttribute("id", arr[0]+i);
         let label = document.createElement("label");
         label.innerHTML = arr[i];
         let br = document.createElement("br");
@@ -81,23 +83,54 @@ function addToPage(arr) {
     }
 }
 
-// Create Array for Local Storage
+
+
+// Create Array and save to Local Storage
 
 var checkboxesChecked = [];
 function getCheckedBoxes(chkboxName,arr) {
     var checkboxes = document.getElementsByName(chkboxName);
-  for (var i=1; i<checkboxes.length; i++) {
+  for (var i=0; i<checkboxes.length; i++) {
     checkboxes[i].checked ? checkboxesChecked[i]= 1 : checkboxesChecked[i]= 0;
   }
-    console.log(checkboxesChecked)
-    localStorage.setItem(arr[0],checkboxesChecked)
+    console.log(checkboxesChecked);
+    localStorage.setItem(arr[0], checkboxesChecked);
+
+
 }
+
 var mornClick = document.getElementById("morning");
 mornClick.addEventListener("click",alerts );
 function alerts() {
 
-    getCheckedBoxes("Morning", morningCap)
+    getCheckedBoxes("Morning", morningCap);
+    checkCheck();
+
+
 }
 
 
+// Get Array from Local Storage and Update Page
 
+
+
+function checkCheck() {
+    let morningCheck = localStorage.getItem("Morning");
+    let morningCheckArr = morningCheck.split(",")
+    console.log(morningCheckArr.length)
+    for (let i = 1; i < morningCheckArr.length; i++) {
+        if (morningCheckArr[i] === "1") {
+            let x = "Morning" + (i+1);
+            console.log(typeof (x))
+            console.log(x)
+            document.getElementById(x).checked = true;
+
+
+        }
+
+
+
+
+
+    }
+}
