@@ -84,37 +84,20 @@ function addToPage(arr) {
 // Create Array for Local Storage
 
 var checkboxesChecked = [];
-function getCheckedBoxes(chkboxName) {
+function getCheckedBoxes(chkboxName,arr) {
     var checkboxes = document.getElementsByName(chkboxName);
-
-  // loop over them all
   for (var i=1; i<checkboxes.length; i++) {
-
     checkboxes[i].checked ? checkboxesChecked[i]= 1 : checkboxesChecked[i]= 0;
   }
-
     console.log(checkboxesChecked)
-
+    localStorage.setItem(arr[0],checkboxesChecked)
 }
-
-// Call as
-
-
 var mornClick = document.getElementById("morning");
 mornClick.addEventListener("click",alerts );
-
-
-
 function alerts() {
 
-    getCheckedBoxes("Morning")
+    getCheckedBoxes("Morning", morningCap)
 }
 
 
-
-
-
-// console.log(morningArr);
-// console.log(dayArr);
-// console.log(eveningArr)
 
