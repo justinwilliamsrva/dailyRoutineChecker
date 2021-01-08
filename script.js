@@ -89,17 +89,10 @@ function getCheckedBoxes(chkboxName) {
 
   // loop over them all
   for (var i=1; i<checkboxes.length; i++) {
-     // And stick the checked ones onto an array...
-     if (checkboxes[i].checked) {
-        checkboxesChecked[i]= 1;
-     }
-     else {
-        checkboxesChecked[i]= 0;
 
-      }
+    checkboxes[i].checked ? checkboxesChecked[i]= 1 : checkboxesChecked[i]= 0;
   }
-  // Return the array if it is non-empty, or null
-//   return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+
     console.log(checkboxesChecked)
 
 }
@@ -121,7 +114,7 @@ function alerts() {
 
 
 
-console.log(morningArr);
-console.log(dayArr);
-console.log(eveningArr)
+// console.log(morningArr);
+// console.log(dayArr);
+// console.log(eveningArr)
 
