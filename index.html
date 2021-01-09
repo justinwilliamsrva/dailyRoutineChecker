@@ -9,20 +9,26 @@
     <body>
         <h1 id="title" class="heading">Daily Checklist</h1>
         <div id="grid-container">
-            <div id="morning" class="column ">
-                <h2 class="heading">Morning</h2>
-                <form class="form" id="morning-list">
-                </form>
+            <div id="morning" class="column">
+                <div class="heading">
+                    <h2 id="morning-header" class="heading">Morning</h2>
+                    <button id="morning-button">Clear</button>
+                </div>
+                <form class="form" id="morning-list"></form>
             </div>
             <div id="day" class="column">
-                <h2 class="heading">Day</h2>
-                <form id="day-list">
-                </form>
+                <div class="heading">
+                    <h2 id="day-header" class="heading">Day</h2>
+                    <button id="day-button">Clear</button>
+                </div>
+                <form id="day-list"></form>
             </div>
             <div id="evening" class="column">
-                <h2 class="heading">Evening</h2>
-                <form id="evening-list">
-                </form>
+                <div class="heading">
+                    <h2 id="evening-header" class="heading">Evening</h2>
+                    <button id="evening-button">Clear</button>
+                </div>
+                <form id="evening-list"></form>
             </div>
         </div>
         <script src="script.js"></script>

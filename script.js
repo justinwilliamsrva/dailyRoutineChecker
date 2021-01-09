@@ -101,7 +101,7 @@ var mornClick = document.getElementById("morning");
 mornClick.addEventListener("click",morningClickFunc );
 function morningClickFunc() {
     getCheckedBoxes("Morning", morningCap);
-   
+
 
 }
 
@@ -156,3 +156,6 @@ function checkEvening() {
         }
     }
 }
+// Create Clear Button
+
+
