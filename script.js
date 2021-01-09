@@ -118,8 +118,8 @@ function eveningClickFunc() {
 }
 
 // Get Array from Local Storage and Update Page
-let morningCheck = localStorage.getItem("Morning");
 function checkMorning() {
+    let morningCheck = localStorage.getItem("Morning");
 
     let morningCheckArr = morningCheck.split(",")
     for (let i = 0; i < morningCheckArr.length; i++) {
