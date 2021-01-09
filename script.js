@@ -51,9 +51,7 @@ let eveningList = document.getElementById("evening-list");
 addToPage(morningCap);
 addToPage(dayCap);
 addToPage(eveningCap);
-checkMorning();
-checkDay();
-checkEvening();
+
 
 function addToPage(arr) {
     for (let i = 1; i < arr.length; i++) {
@@ -120,9 +118,9 @@ function eveningClickFunc() {
 }
 
 // Get Array from Local Storage and Update Page
-
+let morningCheck = localStorage.getItem("Morning");
 function checkMorning() {
-    let morningCheck = localStorage.getItem("Morning");
+
     let morningCheckArr = morningCheck.split(",")
     for (let i = 0; i < morningCheckArr.length; i++) {
 
@@ -156,6 +154,19 @@ function checkEvening() {
         }
     }
 }
-// Create Clear Button
+
+checkMorning();
+checkDay();
+checkEvening();
+// Create Clear Button Function
+// let morningButton = document.getElementById("morning-button")
+
+// morningButton.addEventListener("click", eraseMorning)
+// function eraseMorning() {
+// let
+//     localStorage.setItem("Morning", );
+
+
+// }
 
 
