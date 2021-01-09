@@ -117,8 +117,9 @@ function alerts() {
 function checkCheck() {
     let morningCheck = localStorage.getItem("Morning");
     let morningCheckArr = morningCheck.split(",")
-    console.log(morningCheckArr.length)
-    for (let i = 1; i < morningCheckArr.length; i++) {
+
+    for (let i = 0; i < morningCheckArr.length; i++) {
+        console.log(morningCheckArr[0])
         if (morningCheckArr[i] === "1") {
             let x = "Morning" + (i+1);
             console.log(typeof (x))
