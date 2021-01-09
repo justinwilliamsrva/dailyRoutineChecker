@@ -120,7 +120,8 @@ function eveningClickFunc() {
 // Get Array from Local Storage and Update Page
 function checkMorning() {
     let morningCheck = localStorage.getItem("Morning");
-
+    console.log(typeof (morningCheck));
+    console.log(morning)
     let morningCheckArr = morningCheck.split(",")
     for (let i = 0; i < morningCheckArr.length; i++) {
 
@@ -155,9 +156,9 @@ function checkEvening() {
     }
 }
 
-checkMorning();
-checkDay();
-checkEvening();
+// checkMorning();
+// checkDay();
+// checkEvening();
 // Create Clear Button Function
 // let morningButton = document.getElementById("morning-button")
 
