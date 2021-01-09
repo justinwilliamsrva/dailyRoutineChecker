@@ -118,8 +118,9 @@ function eveningClickFunc() {
 }
 
 // Get Array from Local Storage and Update Page
+let morningCheck = localStorage.getItem("Morning");
+
 function checkMorning() {
-    let morningCheck = localStorage.getItem("Morning");
     console.log(typeof (morningCheck));
     console.log(morning)
     let morningCheckArr = morningCheck.split(",")
@@ -132,8 +133,9 @@ function checkMorning() {
         }
     }
 }
+let dayCheck = localStorage.getItem("Day");
 function checkDay() {
-    let dayCheck = localStorage.getItem("Day");
+
     let dayCheckArr = dayCheck.split(",");
     for (let i = 0; i < dayCheckArr.length; i++) {
         if (dayCheckArr[i] === "1") {
@@ -143,8 +145,9 @@ function checkDay() {
         }
     }
 }
+let eveningCheck = localStorage.getItem("Evening");
+
 function checkEvening() {
-    let eveningCheck = localStorage.getItem("Evening");
     console.log(eveningCheck);
     let eveningCheckArr = eveningCheck.split(",")
     for (let i = 0; i < eveningCheckArr.length; i++) {
@@ -157,8 +160,8 @@ function checkEvening() {
 }
 
 checkMorning();
-// checkDay();
-// checkEvening();
+checkDay();
+checkEvening();
 // Create Clear Button Function
 // let morningButton = document.getElementById("morning-button")
 
