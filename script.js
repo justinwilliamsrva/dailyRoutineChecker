@@ -156,7 +156,7 @@ function checkEvening() {
     }
 }
 
-// checkMorning();
+checkMorning();
 // checkDay();
 // checkEvening();
 // Create Clear Button Function
