@@ -52,13 +52,13 @@ addToPage(morningCap);
 addToPage(dayCap);
 addToPage(eveningCap);
 
-
 function addToPage(arr) {
     for (let i = 1; i < arr.length; i++) {
         let input = document.createElement("input");
         input.setAttribute("type", "checkbox");
         input.setAttribute("name", arr[0]);
         input.setAttribute("id", arr[0] + i);
+        input.setAttribute("class", arr[0] + "Class");
         let label = document.createElement("label");
         label.innerHTML = arr[i];
         let br = document.createElement("br");
@@ -84,7 +84,6 @@ function addToPage(arr) {
 
 // Create Array and save to Local Storage
 function getCheckedBoxes(chkboxName, arr) {
-
     var checkboxesChecked = [];
 
     var checkboxes = document.getElementsByName(chkboxName);
@@ -95,66 +94,60 @@ function getCheckedBoxes(chkboxName, arr) {
     localStorage.setItem(arr[0], checkboxesChecked);
 }
 
-var mornClick = document.getElementById("morning");
-mornClick.addEventListener("click",morningClickFunc );
+morningList.addEventListener("click", morningClickFunc);
 function morningClickFunc() {
     getCheckedBoxes("Morning", morningCap);
-
-
 }
 
 var dayClick = document.getElementById("day");
 dayClick.addEventListener("click", dayClickFunc);
 function dayClickFunc() {
     getCheckedBoxes("Day", dayCap);
-
 }
 
 var eveningClick = document.getElementById("evening");
-eveningClick.addEventListener("click",eveningClickFunc);
+eveningClick.addEventListener("click", eveningClickFunc);
 function eveningClickFunc() {
     getCheckedBoxes("Evening", eveningCap);
-
 }
 
 // Get Array from Local Storage and Update Page
 let morningCheck = localStorage.getItem("Morning");
+let morningCheckArr = morningCheck.split(",");
 
 function checkMorning() {
-    console.log(typeof (morningCheck));
-    console.log(morning)
-    let morningCheckArr = morningCheck.split(",")
     for (let i = 0; i < morningCheckArr.length; i++) {
-
+        let x = "Morning" + (i + 1);
         if (morningCheckArr[i] === "1") {
-            let x = "Morning" + (i+1);
-
             document.getElementById(x).checked = true;
+        } else {
+            document.getElementById(x).checked = false;
         }
     }
 }
 let dayCheck = localStorage.getItem("Day");
+let dayCheckArr = dayCheck.split(",");
+
 function checkDay() {
-
-    let dayCheckArr = dayCheck.split(",");
     for (let i = 0; i < dayCheckArr.length; i++) {
+        let x = "Day" + (i + 1);
         if (dayCheckArr[i] === "1") {
-            let x = "Day" + (i + 1);
-
             document.getElementById(x).checked = true;
+        } else {
+            document.getElementById(x).checked = false;
         }
     }
 }
 let eveningCheck = localStorage.getItem("Evening");
+let eveningCheckArr = eveningCheck.split(",");
 
 function checkEvening() {
-    console.log(eveningCheck);
-    let eveningCheckArr = eveningCheck.split(",")
     for (let i = 0; i < eveningCheckArr.length; i++) {
+        let x = "Evening" + (i + 1);
         if (eveningCheckArr[i] === "1") {
-            let x = "Evening" + (i+1);
-
             document.getElementById(x).checked = true;
+        } else {
+            document.getElementById(x).checked = false;
         }
     }
 }
@@ -163,14 +156,31 @@ checkMorning();
 checkDay();
 checkEvening();
 // Create Clear Button Function
-// let morningButton = document.getElementById("morning-button")
+let morningButton = document.getElementById("morning-button");
+morningButton.addEventListener("click", eraseMorning);
+function eraseMorning() {
+    morningCheckArr.forEach((num, index) => {
+        return (morningCheckArr[index] = num * 0);
+    });
+    localStorage.setItem("Morning", morningCheckArr);
+    checkMorning();
+}
 
-// morningButton.addEventListener("click", eraseMorning)
-// function eraseMorning() {
-// let
-//     localStorage.setItem("Morning", );
-
-
-// }
-
-
+let dayButton = document.getElementById("day-button");
+dayButton.addEventListener("click", eraseDay);
+function eraseDay() {
+    dayCheckArr.forEach((num, index) => {
+        return (dayCheckArr[index] = num * 0);
+    });
+    localStorage.setItem("Day", dayCheckArr);
+    checkDay();
+}
+let eveningButton = document.getElementById("evening-button");
+eveningButton.addEventListener("click", eraseEvening);
+function eraseEvening() {
+    eveningCheckArr.forEach((num, index) => {
+        return (eveningCheckArr[index] = num * 0);
+    });
+    localStorage.setItem("Evening", eveningCheckArr);
+    checkEvening();
+}
