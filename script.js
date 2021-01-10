@@ -184,3 +184,12 @@ function eraseEvening() {
     localStorage.setItem("Evening", eveningCheckArr);
     checkEvening();
 }
+let clearAll = document.getElementById("clear-all");
+clearAll.addEventListener("click", clearAllFunc);
+function clearAllFunc() {
+    eraseDay();
+    eraseMorning();
+    eraseEvening();
+
+}
+
