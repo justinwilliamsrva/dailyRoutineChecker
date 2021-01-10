@@ -193,3 +193,20 @@ function clearAllFunc() {
 
 }
 
+//
+let old = localStorage.getItem("date");
+
+let date = new Date();
+let currentDate = date.getDate();
+console.log(old + currentDate);
+
+
+
+function resetOnDate() {
+    if (old != currentDate) {
+        clearAllFunc();
+        localStorage.setItem("date", currentDate)
+
+
+    }
+}
