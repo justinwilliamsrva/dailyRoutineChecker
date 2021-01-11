@@ -205,25 +205,20 @@ function saveCheck() {
     resetDate.checked ? localStorage.setItem("reset", "true") : localStorage.setItem("reset", "false");
 }
 
+let resetSaved = localStorage.getItem("reset");
+getCheck();
 
-
-
-
-
-
-
-
-
-if (resetDate.checked) {
-    resetOnDate();
+function getCheck() {
+    if (resetSaved == "true") {
+        resetDate.checked = true
+        resetOnDate();
+    }
 }
 
 function resetOnDate() {
     if (old != currentDate) {
         clearAllFunc();
         localStorage.setItem("date", currentDate)
-
-
     }
 }
 
