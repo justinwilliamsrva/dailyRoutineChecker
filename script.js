@@ -195,12 +195,28 @@ function clearAllFunc() {
 
 //
 let old = localStorage.getItem("date");
-
 let date = new Date();
 let currentDate = date.getDate();
 console.log(old + currentDate);
+let resetDate = document.getElementById("reset-date");
+resetDate.addEventListener("click",saveCheck)
+
+function saveCheck() {
+    resetDate.checked ? localStorage.setItem("reset", "true") : localStorage.setItem("reset", "false");
+}
 
 
+
+
+
+
+
+
+
+
+if (resetDate.checked) {
+    resetOnDate();
+}
 
 function resetOnDate() {
     if (old != currentDate) {
@@ -210,3 +226,6 @@ function resetOnDate() {
 
     }
 }
+
+
+
