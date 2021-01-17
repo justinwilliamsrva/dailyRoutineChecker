@@ -113,9 +113,10 @@ function eveningClickFunc() {
 
 // Get Array from Local Storage and Update Page
 let morningCheck = localStorage.getItem("Morning");
-let morningCheckArr = morningCheck.split(",");
+
 
 function checkMorning() {
+    let morningCheckArr = morningCheck.split(",");
     for (let i = 0; i < morningCheckArr.length; i++) {
         let x = "Morning" + (i + 1);
         if (morningCheckArr[i] === "1") {
@@ -126,9 +127,10 @@ function checkMorning() {
     }
 }
 let dayCheck = localStorage.getItem("Day");
-let dayCheckArr = dayCheck.split(",");
 
 function checkDay() {
+    let dayCheckArr = dayCheck.split(",");
+
     for (let i = 0; i < dayCheckArr.length; i++) {
         let x = "Day" + (i + 1);
         if (dayCheckArr[i] === "1") {
@@ -139,9 +141,10 @@ function checkDay() {
     }
 }
 let eveningCheck = localStorage.getItem("Evening");
-let eveningCheckArr = eveningCheck.split(",");
+
 
 function checkEvening() {
+    let eveningCheckArr = eveningCheck.split(",");
     for (let i = 0; i < eveningCheckArr.length; i++) {
         let x = "Evening" + (i + 1);
         if (eveningCheckArr[i] === "1") {
@@ -151,37 +154,51 @@ function checkEvening() {
         }
     }
 }
+if (localStorage.getItem("Morning")) {
+    checkMorning();
+}
+if (localStorage.getItem("Day")) {
+    checkDay();
+}
+if (localStorage.getItem("Evening")) {
+    checkEvening();
+}
 
-checkMorning();
-checkDay();
-checkEvening();
 // Create Clear Button Function
 let morningButton = document.getElementById("morning-button");
 morningButton.addEventListener("click", eraseMorning);
 function eraseMorning() {
+    let morningCheckArr = morningCheck.split(",");
     morningCheckArr.forEach((num, index) => {
         return (morningCheckArr[index] = num * 0);
     });
     localStorage.setItem("Morning", morningCheckArr);
+    morningCheck = localStorage.getItem("Morning");
     checkMorning();
 }
 
 let dayButton = document.getElementById("day-button");
 dayButton.addEventListener("click", eraseDay);
 function eraseDay() {
+    let dayCheckArr = dayCheck.split(",");
+
     dayCheckArr.forEach((num, index) => {
         return (dayCheckArr[index] = num * 0);
     });
     localStorage.setItem("Day", dayCheckArr);
+    dayCheck = localStorage.getItem("Day");
     checkDay();
 }
 let eveningButton = document.getElementById("evening-button");
 eveningButton.addEventListener("click", eraseEvening);
 function eraseEvening() {
+    let eveningCheckArr = eveningCheck.split(",");
+
     eveningCheckArr.forEach((num, index) => {
         return (eveningCheckArr[index] = num * 0);
     });
     localStorage.setItem("Evening", eveningCheckArr);
+    eveningCheck = localStorage.getItem("Evening");
     checkEvening();
 }
 let clearAll = document.getElementById("clear-all");
@@ -190,7 +207,6 @@ function clearAllFunc() {
     eraseDay();
     eraseMorning();
     eraseEvening();
-
 }
 
 //
@@ -199,10 +215,12 @@ let date = new Date();
 let currentDate = date.getDate();
 console.log(old + currentDate);
 let resetDate = document.getElementById("reset-date");
-resetDate.addEventListener("click",saveCheck)
+resetDate.addEventListener("click", saveCheck);
 
 function saveCheck() {
-    resetDate.checked ? localStorage.setItem("reset", "true") : localStorage.setItem("reset", "false");
+    resetDate.checked
+        ? localStorage.setItem("reset", "true")
+        : localStorage.setItem("reset", "false");
 }
 
 let resetSaved = localStorage.getItem("reset");
@@ -210,7 +228,7 @@ getCheck();
 
 function getCheck() {
     if (resetSaved == "true") {
-        resetDate.checked = true
+        resetDate.checked = true;
         resetOnDate();
     }
 }
@@ -218,9 +236,6 @@ function getCheck() {
 function resetOnDate() {
     if (old != currentDate) {
         clearAllFunc();
-        localStorage.setItem("date", currentDate)
+        localStorage.setItem("date", currentDate);
     }
 }
-
-
-
