@@ -39,7 +39,8 @@ let evening = [
 let morningCap = morning.map(capital);
 let dayCap = day.map(capital);
 let eveningCap = evening.map(capital);
-let percentage = document.getElementById("percentage")
+let percentage = document.getElementById("percentage");
+let percent;
 
 
 function capital(item) {
@@ -103,26 +104,21 @@ function morningClickFunc() {
   getCheckedBoxes("Morning", morningCap);
 
   evaluate();
-
 }
 
 var dayClick = document.getElementById("day");
 dayClick.addEventListener("click", dayClickFunc);
 function dayClickFunc() {
-    getCheckedBoxes("Day", dayCap);
-    evaluate();
-
-
+  getCheckedBoxes("Day", dayCap);
+  evaluate();
 }
 
 var eveningClick = document.getElementById("evening");
 eveningClick.addEventListener("click", eveningClickFunc);
 function eveningClickFunc() {
-    getCheckedBoxes("Evening", eveningCap);
+  getCheckedBoxes("Evening", eveningCap);
 
-    evaluate();
-
-
+  evaluate();
 }
 
 // Get Array from Local Storage and Update Page
@@ -138,7 +134,6 @@ function checkMorning() {
       document.getElementById(x).checked = false;
     }
   }
-
 }
 let dayCheck = localStorage.getItem("Day");
 
@@ -170,17 +165,12 @@ function checkEvening() {
 evaluate();
 if (localStorage.getItem("Morning")) {
   checkMorning();
-
 }
 if (localStorage.getItem("Day")) {
   checkDay();
-
-
 }
 if (localStorage.getItem("Evening")) {
   checkEvening();
-
-
 }
 
 // Create Clear Button Function
@@ -269,21 +259,32 @@ function evaluate() {
   dayCheck = localStorage.getItem("Day");
   eveningCheck = localStorage.getItem("Evening");
 
+  let morningCheckArr = morningCheck.split(",");
+  let dayCheckArr = dayCheck.split(",");
+  let eveningCheckArr = eveningCheck.split(",");
 
-    let morningCheckArr = morningCheck.split(",");
-    let dayCheckArr = dayCheck.split(",");
-    let eveningCheckArr = eveningCheck.split(",");
-
-    let totalChecks = [...morningCheckArr,...dayCheckArr,...eveningCheckArr] ;
+  let totalChecks = [...morningCheckArr, ...dayCheckArr, ...eveningCheckArr];
 
   let ones = 0;
 
-  totalChecks.map((item) => (item == 1) ? ones++ : ones=ones);
+  totalChecks.map((item) => (item == 1 ? ones++ : (ones = ones)));
 
-
-  let percent = Math.floor((ones / totalChecks.length) * 100);
-  console.log(percent)
+  percent = Math.floor((ones / totalChecks.length) * 100);
+  console.log(percent);
 
   percentage.innerHTML = percent;
+}
 
-};
+// Submit Daily Percent
+const submit = document.getElementById("submit");
+
+submit.addEventListener("click", saveData);
+let month = date.getMonth() + 1;
+let today = date.getDate();
+let year = date.getFullYear();
+let saveDate = `${month}-${today}-${year}`
+
+
+function saveData() {
+  localStorage.setItem(saveDate, percent);
+}
