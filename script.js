@@ -39,6 +39,8 @@ let evening = [
 let morningCap = morning.map(capital);
 let dayCap = day.map(capital);
 let eveningCap = evening.map(capital);
+let percentage = document.getElementById("percentage")
+
 
 function capital(item) {
   let str = item[0].toUpperCase() + item.slice(1);
@@ -165,6 +167,7 @@ function checkEvening() {
     }
   }
 }
+evaluate();
 if (localStorage.getItem("Morning")) {
   checkMorning();
 
@@ -176,7 +179,7 @@ if (localStorage.getItem("Day")) {
 }
 if (localStorage.getItem("Evening")) {
   checkEvening();
-  
+
 
 }
 
@@ -191,7 +194,7 @@ function eraseMorning() {
   localStorage.setItem("Morning", morningCheckArr);
   morningCheck = localStorage.getItem("Morning");
   checkMorning();
-
+  evaluate();
 }
 
 let dayButton = document.getElementById("day-button");
@@ -205,6 +208,7 @@ function eraseDay() {
   localStorage.setItem("Day", dayCheckArr);
   dayCheck = localStorage.getItem("Day");
   checkDay();
+  evaluate();
 }
 let eveningButton = document.getElementById("evening-button");
 eveningButton.addEventListener("click", eraseEvening);
@@ -217,6 +221,7 @@ function eraseEvening() {
   localStorage.setItem("Evening", eveningCheckArr);
   eveningCheck = localStorage.getItem("Evening");
   checkEvening();
+  evaluate();
 }
 let clearAll = document.getElementById("clear-all");
 clearAll.addEventListener("click", clearAllFunc);
@@ -256,9 +261,9 @@ function resetOnDate() {
     localStorage.setItem("date", currentDate);
   }
 }
+// Check all
 
 // Get Percentage of Item's Checked
-let percentage = document.getElementById("percentage")
 function evaluate() {
   morningCheck = localStorage.getItem("Morning");
   dayCheck = localStorage.getItem("Day");
@@ -273,10 +278,11 @@ function evaluate() {
 
   let ones = 0;
 
-  totalChecks.map((item) => (item == 1) ? ones++ : console.log(ones));
+  totalChecks.map((item) => (item == 1) ? ones++ : ones=ones);
 
 
-  let percent = Math.floor((ones / totalChecks.length)*100);
+  let percent = Math.floor((ones / totalChecks.length) * 100);
+  console.log(percent)
 
   percentage.innerHTML = percent;
 
