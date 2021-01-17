@@ -286,5 +286,7 @@ let saveDate = `${month}-${today}-${year}`
 
 
 function saveData() {
-  localStorage.setItem(saveDate, percent);
+
+
+  localStorage.setItem("SavedData", `${saveDate}:${percent}`);
 }
