@@ -41,8 +41,15 @@ let dayCap = day.map(capital);
 let eveningCap = evening.map(capital);
 let percentage = document.getElementById("percentage");
 let percent;
-
-
+let old = localStorage.getItem("date");
+let date = new Date();
+let currentDate = date.getDate();
+let month = date.getMonth() + 1;
+let today = date.getDate();
+let year = date.getFullYear();
+let saveDate = `${month}-${today}-${year}`;
+const submit = document.getElementById("submit");
+console.log(`old:${old} current${currentDate}`);
 function capital(item) {
   let str = item[0].toUpperCase() + item.slice(1);
   return str;
@@ -95,7 +102,7 @@ function getCheckedBoxes(chkboxName, arr) {
       ? (checkboxesChecked[i] = 1)
       : (checkboxesChecked[i] = 0);
   }
-  console.log(checkboxesChecked);
+  // console.log(checkboxesChecked);
   localStorage.setItem(arr[0], checkboxesChecked);
 }
 
@@ -172,6 +179,9 @@ if (localStorage.getItem("Day")) {
 if (localStorage.getItem("Evening")) {
   checkEvening();
 }
+if (old!=currentDate) {
+  submit.setAttribute("style","display:inline")
+}
 
 // Create Clear Button Function
 let morningButton = document.getElementById("morning-button");
@@ -222,9 +232,7 @@ function clearAllFunc() {
 }
 
 //
-let old = localStorage.getItem("date");
-let date = new Date();
-let currentDate = date.getDate();
+
 // console.log(old + currentDate);
 let resetDate = document.getElementById("reset-date");
 resetDate.addEventListener("click", saveCheck);
@@ -270,23 +278,32 @@ function evaluate() {
   totalChecks.map((item) => (item == 1 ? ones++ : (ones = ones)));
 
   percent = Math.floor((ones / totalChecks.length) * 100);
-  console.log(percent);
+  // console.log(percent);
 
   percentage.innerHTML = percent;
 }
 
 // Submit Daily Percent
-const submit = document.getElementById("submit");
 
-submit.addEventListener("click", saveData);
-let month = date.getMonth() + 1;
-let today = date.getDate();
-let year = date.getFullYear();
-let saveDate = `${month}-${today}-${year}`
+
 
 
 function saveData() {
+  let confirms = confirm(
+    `Warning: You can only submit your percentage once a day. Would you like to submit your data for ${saveDate}?`
+  );
+  if (confirms) {
+    let oldData = localStorage.getItem("SavedData");
+    if (oldData) {
+      let newData = oldData + `,${saveDate}:${percent}`;
 
+      localStorage.setItem("SavedData", newData);
+    } else {
+      localStorage.setItem("SavedData", `"${saveDate}":"${percent}"`);
+    }
+submit.setAttribute("style","display:none")
 
-  localStorage.setItem("SavedData", `${saveDate}:${percent}`);
+  }
 }
+
+submit.addEventListener("click", saveData);
