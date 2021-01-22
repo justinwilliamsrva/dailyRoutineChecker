@@ -49,6 +49,7 @@ let today = date.getDate();
 let year = date.getFullYear();
 let saveDate = `${month}-${today}-${year}`;
 const submit = document.getElementById("submit");
+let saveCount;
 console.log(`old:${old} current${currentDate}`);
 function capital(item) {
   let str = item[0].toUpperCase() + item.slice(1);
@@ -91,7 +92,6 @@ function addToPage(arr) {
     }
   }
 }
-
 
 // Create Array and save to Local Storage
 function getCheckedBoxes(chkboxName, arr) {
@@ -171,30 +171,11 @@ function checkEvening() {
   }
 }
 
-// for (i = 0; i < localStorage.length; i++) {
-//   if (localStorage.key(i) == "Morning") {
-//     checkMorning()
-//   }
-
-// }
 checkMorning();
 checkDay();
 checkEvening();
 
 evaluate();
-
-// if (localStorage.getItem("Morning")) {
-//   checkMorning();
-// }
-// if (localStorage.getItem("Day")) {
-//   checkDay();
-// }
-// if (localStorage.getItem("Evening")) {
-//   checkEvening();
-// }
-if (old!=currentDate) {
-  submit.setAttribute("style","display:inline")
-}
 
 // Create Clear Button Function
 let morningButton = document.getElementById("morning-button");
@@ -302,10 +283,11 @@ function evaluate() {
 
 // Submit Daily Percent
 
-
-
-
 function saveData() {
+  saveCount = 0;
+  saveCount++;
+  localStorage.setItem("saveCount", saveCount);
+
   let confirms = confirm(
     `Warning: You can only submit your percentage once a day. Would you like to submit your data for ${saveDate}?`
   );
@@ -318,9 +300,23 @@ function saveData() {
     } else {
       localStorage.setItem("SavedData", `"${saveDate}":"${percent}"`);
     }
-submit.setAttribute("style","display:none")
-
+    submit.setAttribute("style", "display:none");
   }
 }
+
+if (old != currentDate) {
+  localStorage.setItem("saveCount", 0);
+}
+
+console.log(localStorage.getItem("saveCount"))
+if (localStorage.getItem("saveCount") == 0||localStorage.getItem("saveCount")==null) {
+
+  submit.setAttribute("style","display:inline")
+
+} else {
+
+  submit.setAttribute("style","display:none")
+}
+
 
 submit.addEventListener("click", saveData);
