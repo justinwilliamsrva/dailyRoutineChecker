@@ -92,6 +92,7 @@ function addToPage(arr) {
   }
 }
 
+
 // Create Array and save to Local Storage
 function getCheckedBoxes(chkboxName, arr) {
   var checkboxesChecked = [];
@@ -169,16 +170,28 @@ function checkEvening() {
     }
   }
 }
+
+// for (i = 0; i < localStorage.length; i++) {
+//   if (localStorage.key(i) == "Morning") {
+//     checkMorning()
+//   }
+
+// }
+checkMorning();
+checkDay();
+checkEvening();
+
 evaluate();
-if (localStorage.getItem("Morning")) {
-  checkMorning();
-}
-if (localStorage.getItem("Day")) {
-  checkDay();
-}
-if (localStorage.getItem("Evening")) {
-  checkEvening();
-}
+
+// if (localStorage.getItem("Morning")) {
+//   checkMorning();
+// }
+// if (localStorage.getItem("Day")) {
+//   checkDay();
+// }
+// if (localStorage.getItem("Evening")) {
+//   checkEvening();
+// }
 if (old!=currentDate) {
   submit.setAttribute("style","display:inline")
 }
@@ -263,6 +276,10 @@ function resetOnDate() {
 
 // Get Percentage of Item's Checked
 function evaluate() {
+  getCheckedBoxes("Morning", morningCap);
+  getCheckedBoxes("Day", dayCap);
+  getCheckedBoxes("Evening", eveningCap);
+
   morningCheck = localStorage.getItem("Morning");
   dayCheck = localStorage.getItem("Day");
   eveningCheck = localStorage.getItem("Evening");
