@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
-        <title>Daily Routine Checklist</title>
-    </head>
-    <body>
-        <input type="checkbox" id="reset-date" >
-        <label>Reset each day</label>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Daily Routine Checklist</title>
+  </head>
+  <body>
+    <input type="checkbox" id="reset-date" />
+    <label>Reset each day</label>
+    <div class="heading">
+      <h1 id="title" class="heading">Daily Checklist</h1>
+      <h2><span id="percentage"></span>%</h2>
+      <div id="button-group">
+        <button id="clear-all">Clear All</button>
+        <button id="check-all">Check All</button>
+        <button id="submit">Submit</button>
+      </div>
+    </div>
+    <div id="grid-container">
+      <div id="morning" class="column">
         <div class="heading">
-            <h1 id="title" class="heading">Daily Checklist</h1>
-            <h2 ><span id="percentage"></span>%</h2>
-            <div id="button-group">
-                <button id="clear-all">Clear All</button>
-                <button id="check-all">Check All</button>
-                <button id="submit">Submit</button>
-            </div>
-
+          <h2 id="morning-header" class="heading">Morning</h2>
+          <button id="morning-button">Clear</button>
+          <button id="check-morning">Check All</button>
         </div>
-        <div id="grid-container">
-            <div id="morning" class="column">
-                <div class="heading">
-                    <h2 id="morning-header" class="heading">Morning</h2>
-                    <button id="morning-button">Clear</button>
-                </div>
-                <form class="form" id="morning-list"></form>
-            </div>
-            <div id="day" class="column">
-                <div class="heading">
-                    <h2 id="day-header" class="heading">Day</h2>
-                    <button id="day-button">Clear</button>
-                </div>
-                <form id="day-list"></form>
-            </div>
-            <div id="evening" class="column">
-                <div class="heading">
-                    <h2 id="evening-header" class="heading">Evening</h2>
-                    <button id="evening-button">Clear</button>
-                </div>
-                <form id="evening-list"></form>
-            </div>
+        <form class="form" id="morning-list"></form>
+      </div>
+      <div id="day" class="column">
+        <div class="heading">
+          <h2 id="day-header" class="heading">Day</h2>
+          <button id="day-button">Clear</button>
+          <button id="check-day">Check All</button>
         </div>
-        <script src="script.js"></script>
-    </body>
+        <form id="day-list"></form>
+      </div>
+      <div id="evening" class="column">
+        <div class="heading">
+          <h2 id="evening-header" class="heading">Evening</h2>
+          <button id="evening-button">Clear</button>
+          <button id="check-evening">Check All</button>
+        </div>
+        <form id="evening-list"></form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

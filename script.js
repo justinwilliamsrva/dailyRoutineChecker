@@ -6,10 +6,8 @@ let morning = [
   "Milk",
   "Breakfast base",
   "Dishwasher",
-  "Sausage",
   "Smoothie",
   "Eggs",
-  "Sausage",
   "Coffee",
   "Milk",
   "Smoothie",
@@ -282,12 +280,10 @@ function evaluate() {
 }
 
 // Submit Daily Percent
-
 function saveData() {
   saveCount = 0;
   saveCount++;
   localStorage.setItem("saveCount", saveCount);
-
   let confirms = confirm(
     `Warning: You can only submit your percentage once a day. Would you like to submit your data for ${saveDate}?`
   );
@@ -303,20 +299,15 @@ function saveData() {
     submit.setAttribute("style", "display:none");
   }
 }
-
 if (old != currentDate) {
   localStorage.setItem("saveCount", 0);
 }
-
 console.log(localStorage.getItem("saveCount"))
 if (localStorage.getItem("saveCount") == 0||localStorage.getItem("saveCount")==null) {
-
   submit.setAttribute("style","display:inline")
-
 } else {
-
   submit.setAttribute("style","display:none")
 }
-
-
 submit.addEventListener("click", saveData);
+
+// Check All
