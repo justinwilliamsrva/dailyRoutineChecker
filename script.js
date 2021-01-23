@@ -70,22 +70,29 @@ function addToPage(arr) {
     input.setAttribute("class", arr[0] + "Class");
     let label = document.createElement("label");
     label.innerHTML = arr[i];
+    let xButton = document.createElement("button", { "style": "color:green" });
+    xButton.setAttribute("style", "margin-left:20px");
+    xButton.setAttribute("id", `${arr[0]}-delete-${i}`);
+    xButton.innerHTML = "X";
     let br = document.createElement("br");
 
     switch (arr[0]) {
       case "Morning":
         morningList.append(input);
         morningList.append(label);
+        morningList.append(xButton);
         morningList.append(br);
         break;
       case "Day":
         dayList.append(input);
         dayList.append(label);
+        dayList.append(xButton);
         dayList.append(br);
         break;
       case "Evening":
         eveningList.append(input);
         eveningList.append(label);
+        eveningList.append(xButton);
         eveningList.append(br);
     }
   }
@@ -356,4 +363,6 @@ if (
 }
 submit.addEventListener("click", saveData);
 
-// Check All
+// Deleted Tasks from Page
+
+
