@@ -223,7 +223,51 @@ function clearAllFunc() {
   eraseEvening();
 }
 
-//
+// Check all
+let checkAllMorning = document.getElementById("check-morning");
+checkAllMorning.addEventListener("click", checkingMorning);
+function checkingMorning() {
+  let morningCheckAllArr = morningCheck.split(",");
+  let newMorning = morningCheckAllArr.map((index) => (index = 1));
+  console.log(newMorning);
+  localStorage.setItem("Morning", newMorning);
+  morningCheck = localStorage.getItem("Morning");
+  checkMorning();
+  evaluate();
+}
+
+let checkAllDay = document.getElementById("check-day");
+checkAllDay.addEventListener("click", checkingDay);
+function checkingDay() {
+  let dayCheckAllArr = dayCheck.split(",");
+  let newDay = dayCheckAllArr.map((index) => (index = 1));
+  console.log(newDay);
+  localStorage.setItem("Day", newDay);
+  dayCheck = localStorage.getItem("Day");
+  checkDay();
+  evaluate();
+}
+
+let checkAllEvening = document.getElementById("check-evening");
+checkAllEvening.addEventListener("click", checkingEvening);
+function checkingEvening() {
+  let eveningCheckAllArr = eveningCheck.split(",");
+  let newEvening = eveningCheckAllArr.map((index) => (index = 1));
+  console.log(newEvening);
+  localStorage.setItem("Evening", newEvening);
+  eveningCheck = localStorage.getItem("Evening");
+  checkEvening();
+  evaluate();
+}
+
+
+// let clearAll = document.getElementById("clear-all");
+// clearAll.addEventListener("click", clearAllFunc);
+// function clearAllFunc() {
+//   eraseDay();
+//   eraseMorning();
+//   eraseEvening();
+// }
 
 // console.log(old + currentDate);
 let resetDate = document.getElementById("reset-date");
@@ -251,7 +295,6 @@ function resetOnDate() {
     localStorage.setItem("date", currentDate);
   }
 }
-// Check all
 
 // Get Percentage of Item's Checked
 function evaluate() {
@@ -302,11 +345,14 @@ function saveData() {
 if (old != currentDate) {
   localStorage.setItem("saveCount", 0);
 }
-console.log(localStorage.getItem("saveCount"))
-if (localStorage.getItem("saveCount") == 0||localStorage.getItem("saveCount")==null) {
-  submit.setAttribute("style","display:inline")
+console.log(localStorage.getItem("saveCount"));
+if (
+  localStorage.getItem("saveCount") == 0 ||
+  localStorage.getItem("saveCount") == null
+) {
+  submit.setAttribute("style", "display:inline");
 } else {
-  submit.setAttribute("style","display:none")
+  submit.setAttribute("style", "display:none");
 }
 submit.addEventListener("click", saveData);
 
