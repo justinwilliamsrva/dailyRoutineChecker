@@ -261,13 +261,13 @@ function checkingEvening() {
 }
 
 
-// let clearAll = document.getElementById("clear-all");
-// clearAll.addEventListener("click", clearAllFunc);
-// function clearAllFunc() {
-//   eraseDay();
-//   eraseMorning();
-//   eraseEvening();
-// }
+let checkAll = document.getElementById("check-all");
+checkAll.addEventListener("click", checkAllFunc);
+function checkAllFunc() {
+  checkingDay();
+  checkingMorning();
+  checkingEvening();
+}
 
 // console.log(old + currentDate);
 let resetDate = document.getElementById("reset-date");
