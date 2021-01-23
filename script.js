@@ -63,6 +63,8 @@ addToPage(eveningCap);
 
 function addToPage(arr) {
   for (let i = 1; i < arr.length; i++) {
+    let div = document.createElement("div");
+    div.setAttribute("draggable","true")
     let input = document.createElement("input");
     input.setAttribute("type", "checkbox");
     input.setAttribute("name", arr[0]);
@@ -78,22 +80,25 @@ function addToPage(arr) {
 
     switch (arr[0]) {
       case "Morning":
-        morningList.append(input);
-        morningList.append(label);
-        morningList.append(xButton);
-        morningList.append(br);
+        div.append(input);
+        div.append(label);
+        // morningList.append(xButton);
+        morningList.append(div);
+        // morningList.append(br);
         break;
       case "Day":
-        dayList.append(input);
-        dayList.append(label);
-        dayList.append(xButton);
-        dayList.append(br);
+        div.append(input);
+        div.append(label);
+        // dayList.append(xButton);
+        dayList.append(div);
+
         break;
       case "Evening":
-        eveningList.append(input);
-        eveningList.append(label);
-        eveningList.append(xButton);
-        eveningList.append(br);
+        div.append(input);
+        div.append(label);
+        // eveningList.append(xButton);
+        eveningList.append(div);
+
     }
   }
 }
