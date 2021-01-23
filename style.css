@@ -67,7 +67,11 @@ body{
 }
 
 }
+/* ALL SCREENS */
 
-button{
-    
+
+
+.draggable{
+
+    cursor:move;
 }

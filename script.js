@@ -64,13 +64,16 @@ addToPage(eveningCap);
 function addToPage(arr) {
   for (let i = 1; i < arr.length; i++) {
     let div = document.createElement("div");
-    div.setAttribute("draggable","true")
+    div.setAttribute("draggable", "true")
+
+
     let input = document.createElement("input");
     input.setAttribute("type", "checkbox");
     input.setAttribute("name", arr[0]);
     input.setAttribute("id", arr[0] + i);
     input.setAttribute("class", arr[0] + "Class");
     let label = document.createElement("label");
+    label.setAttribute("class", "draggable");
     label.innerHTML = arr[i];
     let xButton = document.createElement("button", { "style": "color:green" });
     xButton.setAttribute("style", "margin-left:20px");
