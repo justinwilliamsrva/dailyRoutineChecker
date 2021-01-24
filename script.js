@@ -64,18 +64,17 @@ addToPage(eveningCap);
 function addToPage(arr) {
   for (let i = 1; i < arr.length; i++) {
     let div = document.createElement("div");
-    div.setAttribute("draggable", "true")
-
-
+    div.setAttribute("draggable", "true");
+    div.setAttribute("class", "draggable");
     let input = document.createElement("input");
     input.setAttribute("type", "checkbox");
     input.setAttribute("name", arr[0]);
     input.setAttribute("id", arr[0] + i);
     input.setAttribute("class", arr[0] + "Class");
     let label = document.createElement("label");
-    label.setAttribute("class", "draggable");
+
     label.innerHTML = arr[i];
-    let xButton = document.createElement("button", { "style": "color:green" });
+    let xButton = document.createElement("button", { style: "color:green" });
     xButton.setAttribute("style", "margin-left:20px");
     xButton.setAttribute("id", `${arr[0]}-delete-${i}`);
     xButton.innerHTML = "X";
@@ -101,7 +100,6 @@ function addToPage(arr) {
         div.append(label);
         // eveningList.append(xButton);
         eveningList.append(div);
-
     }
   }
 }
@@ -275,7 +273,6 @@ function checkingEvening() {
   evaluate();
 }
 
-
 let checkAll = document.getElementById("check-all");
 checkAll.addEventListener("click", checkAllFunc);
 function checkAllFunc() {
@@ -371,6 +368,51 @@ if (
 }
 submit.addEventListener("click", saveData);
 
-// Deleted Tasks from Page
+// Draggable items
+const draggables = document.querySelectorAll(".draggable");
+const forms = document.querySelectorAll(".form");
 
+draggables.forEach((draggable) => {
+  draggable.addEventListener("dragstart", () => {
+    draggable.classList.add("dragging");
+  });
+  draggable.addEventListener("dragend", () => {
+    draggable.classList.remove("dragging");
+  });
+});
 
+forms.forEach((form) => {
+  form.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    const afterElement = getDragAfterElement(form, e.clientY);
+    // console.log(afterElement);
+    const draggable = document.querySelector(".dragging");
+
+    if (afterElement == null) {
+      form.appendChild(draggable);
+    } else {
+      form.insertBefore(draggable, afterElement);
+    }
+  });
+});
+
+function getDragAfterElement(form, y) {
+  const draggableElements = [
+    ...form.querySelectorAll(".draggable:not(.dragging)")];
+
+  return draggableElements.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      // console.log(box)
+      const offset = y - box.top - box.height / 2;
+      console.log(offset);
+      // console.log(closest.offset);
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
+}

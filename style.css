@@ -75,3 +75,5 @@ body{
 
     cursor:move;
 }
+
+.draggable.dragging{opacity:.5}
