@@ -76,7 +76,9 @@ function addToPage(arr) {
     label.innerHTML = arr[i];
     let xButton = document.createElement("button", { style: "color:green" });
     xButton.setAttribute("style", "margin-left:20px");
-    xButton.setAttribute("id", `${arr[0]}-delete-${i}`);
+    let n = i < 10 ? "0" + i : i;
+    xButton.setAttribute("id", `${arr[0]}-delete-${n}`);
+    xButton.setAttribute("class", "delete-button");
     xButton.innerHTML = "X";
     let br = document.createElement("br");
 
@@ -84,21 +86,21 @@ function addToPage(arr) {
       case "Morning":
         div.append(input);
         div.append(label);
-        // morningList.append(xButton);
+        div.append(xButton);
         morningList.append(div);
         // morningList.append(br);
         break;
       case "Day":
         div.append(input);
         div.append(label);
-        // dayList.append(xButton);
+        div.append(xButton);
         dayList.append(div);
 
         break;
       case "Evening":
         div.append(input);
         div.append(label);
-        // eveningList.append(xButton);
+        div.append(xButton);
         eveningList.append(div);
     }
   }
@@ -398,7 +400,8 @@ forms.forEach((form) => {
 
 function getDragAfterElement(form, y) {
   const draggableElements = [
-    ...form.querySelectorAll(".draggable:not(.dragging)")];
+    ...form.querySelectorAll(".draggable:not(.dragging)"),
+  ];
 
   return draggableElements.reduce(
     (closest, child) => {
@@ -416,3 +419,12 @@ function getDragAfterElement(form, y) {
     { offset: Number.NEGATIVE_INFINITY }
   ).element;
 }
+
+// Delete Function
+const deleteButton = document.querySelectorAll(".delete-button");
+
+deleteButton.forEach((dbutton) => {
+  dbutton.addEventListener("click", (e) => {
+    console.log(e.target.id);
+  });
+});
