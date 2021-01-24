@@ -425,6 +425,30 @@ const deleteButton = document.querySelectorAll(".delete-button");
 
 deleteButton.forEach((dbutton) => {
   dbutton.addEventListener("click", (e) => {
-    console.log(e.target.id);
+    let timeOfDay = e.target.id.slice(0, 1);
+    let newTarget;
+    let removeDiv;
+function remove(x){
+      while (x.firstChild) {
+              x.removeChild(x.firstChild)
+            }
+        }
+
+
+
+    switch (timeOfDay) {
+      case "M":
+        // alert("hi")
+        removeDiv = document.getElementById("morning-list");
+        newTarget = e.target.id.slice(15, 17);
+        morningCap.splice(newTarget, 1);
+        remove(removeDiv);
+        addToPage(morningCap);
+
+        break;
+      case "D":
+        break;
+      default:
+    }
   });
 });
