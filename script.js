@@ -196,7 +196,7 @@ function checkDays() {
       checkMorning();
     }
     if (x == "Day") {
-        checkDay();
+      checkDay();
     }
     if (x == "Evening") {
       checkEvening();
@@ -387,55 +387,57 @@ if (
 submit.addEventListener("click", saveData);
 
 // Draggable items
-// const draggables = document.querySelectorAll(".draggable");
-// const forms = document.querySelectorAll(".form");
+function createDraggables() {
+  const draggables = document.querySelectorAll(".draggable");
+  const forms = document.querySelectorAll(".form");
 
-// draggables.forEach((draggable) => {
-//   draggable.addEventListener("dragstart", () => {
-//     draggable.classList.add("dragging");
-//   });
-//   draggable.addEventListener("dragend", () => {
-//     draggable.classList.remove("dragging");
-//   });
-// });
+  draggables.forEach((draggable) => {
+    draggable.addEventListener("dragstart", () => {
+      draggable.classList.add("dragging");
+    });
+    draggable.addEventListener("dragend", () => {
+      draggable.classList.remove("dragging");
+    });
+  });
 
-// forms.forEach((form) => {
-//   form.addEventListener("dragover", (e) => {
-//     e.preventDefault();
-//     const afterElement = getDragAfterElement(form, e.clientY);
-//     // console.log(afterElement);
-//     const draggable = document.querySelector(".dragging");
+  forms.forEach((form) => {
+    form.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      const afterElement = getDragAfterElement(form, e.clientY);
+      // console.log(afterElement);
+      const draggable = document.querySelector(".dragging");
 
-//     if (afterElement == null) {
-//       form.appendChild(draggable);
-//     } else {
-//       form.insertBefore(draggable, afterElement);
-//     }
-//   });
-// });
+      if (afterElement == null) {
+        form.appendChild(draggable);
+      } else {
+        form.insertBefore(draggable, afterElement);
+      }
+    });
+  });
 
-// function getDragAfterElement(form, y) {
-//   const draggableElements = [
-//     ...form.querySelectorAll(".draggable:not(.dragging)"),
-//   ];
+  function getDragAfterElement(form, y) {
+    const draggableElements = [
+      ...form.querySelectorAll(".draggable:not(.dragging)"),
+    ];
 
-//   return draggableElements.reduce(
-//     (closest, child) => {
-//       const box = child.getBoundingClientRect();
-//       // console.log(box)
-//       const offset = y - box.top - box.height / 2;
-//       console.log(offset);
-//       // console.log(closest.offset);
-//       if (offset < 0 && offset > closest.offset) {
-//         return { offset: offset, element: child };
-//       } else {
-//         return closest;
-//       }
-//     },
-//     { offset: Number.NEGATIVE_INFINITY }
-//   ).element;
-// }
-
+    return draggableElements.reduce(
+      (closest, child) => {
+        const box = child.getBoundingClientRect();
+        // console.log(box)
+        const offset = y - box.top - box.height / 2;
+        console.log(offset);
+        // console.log(closest.offset);
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
+        }
+      },
+      { offset: Number.NEGATIVE_INFINITY }
+    ).element;
+  }
+}
+createDraggables();
 // Delete Function
 let newTarget;
 let removeDiv = document.getElementById("morning-list");
@@ -466,6 +468,7 @@ function createDeleteButtons() {
           remove(morningList);
           addToPage(morningCap);
           createDeleteButtons();
+          createDraggables();
           break;
         case "D":
           newTarget = e.target.id.slice(11, 13);
@@ -477,20 +480,21 @@ function createDeleteButtons() {
           remove(dayList);
           addToPage(dayCap);
           createDeleteButtons();
+          createDraggables();
           break;
-          default:
-            newTarget = e.target.id.slice(15, 17);
-            NewTargetInt = parseInt(newTarget);
-            console.log(NewTargetInt);
+        default:
+          newTarget = e.target.id.slice(15, 17);
+          NewTargetInt = parseInt(newTarget);
+          console.log(NewTargetInt);
 
-            eveningCap.splice(NewTargetInt, 1);
-            // console.log(morningCap);
-            remove(eveningList);
-            addToPage(eveningCap);
-            createDeleteButtons();
-            break;
+          eveningCap.splice(NewTargetInt, 1);
+          // console.log(morningCap);
+          remove(eveningList);
+          addToPage(eveningCap);
+          createDeleteButtons();
+          createDraggables();
+          break;
       }
     });
   });
 }
-
