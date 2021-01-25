@@ -49,8 +49,6 @@ let saveDate = `${month}-${today}-${year}`;
 const submit = document.getElementById("submit");
 let saveCount;
 
-
-
 console.log(`old:${old} current${currentDate}`);
 function capital(item) {
   let str = item[0].toUpperCase() + item.slice(1);
@@ -62,8 +60,8 @@ let dayList = document.getElementById("day-list");
 let eveningList = document.getElementById("evening-list");
 
 addToPage(morningCap);
-// addToPage(dayCap);
-// addToPage(eveningCap);
+addToPage(dayCap);
+addToPage(eveningCap);
 
 // init();
 function addToPage(arr) {
@@ -86,7 +84,6 @@ function addToPage(arr) {
     xButton.setAttribute("class", "delete-button");
     xButton.innerHTML = "X";
     let br = document.createElement("br");
-
 
     switch (arr[0]) {
       case "Morning":
@@ -199,10 +196,10 @@ function checkDays() {
       checkMorning();
     }
     if (x == "Day") {
-      //   checkDay();
+        checkDay();
     }
     if (x == "Evening") {
-      // checkEvening();
+      checkEvening();
     }
   }
 }
@@ -442,8 +439,7 @@ submit.addEventListener("click", saveData);
 // Delete Function
 let newTarget;
 let removeDiv = document.getElementById("morning-list");
-
-
+let NewTargetInt;
 function remove(x) {
   console.log(x.firstChild);
   while (x.firstChild) {
@@ -459,32 +455,42 @@ function createDeleteButtons() {
       // alert("hi")
       let timeOfDay = e.target.id.slice(0, 1);
       console.log(timeOfDay);
+      switch (timeOfDay) {
+        case "M":
+          newTarget = e.target.id.slice(15, 17);
+          NewTargetInt = parseInt(newTarget);
+          // console.log(NewTargetInt);
 
-      newTarget = e.target.id.slice(15, 17);
-      let NewTargetInt = parseInt(newTarget);
-      console.log(NewTargetInt);
+          morningCap.splice(NewTargetInt, 1);
+          // console.log(morningCap);
+          remove(morningList);
+          addToPage(morningCap);
+          createDeleteButtons();
+          break;
+        case "D":
+          newTarget = e.target.id.slice(11, 13);
+          NewTargetInt = parseInt(newTarget);
+          console.log(NewTargetInt);
 
-      morningCap.splice(NewTargetInt, 1);
-      console.log(morningCap);
-      remove(removeDiv);
-      addToPage(morningCap);
-      createDeleteButtons();
+          dayCap.splice(NewTargetInt, 1);
+          // console.log(morningCap);
+          remove(dayList);
+          addToPage(dayCap);
+          createDeleteButtons();
+          break;
+          default:
+            newTarget = e.target.id.slice(15, 17);
+            NewTargetInt = parseInt(newTarget);
+            console.log(NewTargetInt);
 
+            eveningCap.splice(NewTargetInt, 1);
+            // console.log(morningCap);
+            remove(eveningList);
+            addToPage(eveningCap);
+            createDeleteButtons();
+            break;
+      }
     });
   });
 }
-let disappear = document.getElementById("disappear");
-let appear = document.getElementById("appear");
 
-disappear.addEventListener("click", () => {
-  while (removeDiv.firstChild) {
-    removeDiv.removeChild(removeDiv.firstChild);
-  }
-});
-
-appear.addEventListener("click", () => {
-  addToPage(morningCap);
-  createDeleteButtons();
-
-
-});
