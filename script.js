@@ -48,6 +48,9 @@ let year = date.getFullYear();
 let saveDate = `${month}-${today}-${year}`;
 const submit = document.getElementById("submit");
 let saveCount;
+
+
+
 console.log(`old:${old} current${currentDate}`);
 function capital(item) {
   let str = item[0].toUpperCase() + item.slice(1);
@@ -57,10 +60,12 @@ function capital(item) {
 let morningList = document.getElementById("morning-list");
 let dayList = document.getElementById("day-list");
 let eveningList = document.getElementById("evening-list");
-addToPage(morningCap);
-addToPage(dayCap);
-addToPage(eveningCap);
 
+addToPage(morningCap);
+// addToPage(dayCap);
+// addToPage(eveningCap);
+
+// init();
 function addToPage(arr) {
   for (let i = 1; i < arr.length; i++) {
     let div = document.createElement("div");
@@ -81,6 +86,7 @@ function addToPage(arr) {
     xButton.setAttribute("class", "delete-button");
     xButton.innerHTML = "X";
     let br = document.createElement("br");
+
 
     switch (arr[0]) {
       case "Morning":
@@ -184,10 +190,23 @@ function checkEvening() {
   }
 }
 
-checkMorning();
-checkDay();
-checkEvening();
+let storageKeys = [];
 
+function checkDays() {
+  for (let i = 0; i < localStorage.length; i++) {
+    x = localStorage.key(i);
+    if (x == "Morning") {
+      checkMorning();
+    }
+    if (x == "Day") {
+      //   checkDay();
+    }
+    if (x == "Evening") {
+      // checkEvening();
+    }
+  }
+}
+checkDays();
 evaluate();
 
 // Create Clear Button Function
@@ -371,84 +390,101 @@ if (
 submit.addEventListener("click", saveData);
 
 // Draggable items
-const draggables = document.querySelectorAll(".draggable");
-const forms = document.querySelectorAll(".form");
+// const draggables = document.querySelectorAll(".draggable");
+// const forms = document.querySelectorAll(".form");
 
-draggables.forEach((draggable) => {
-  draggable.addEventListener("dragstart", () => {
-    draggable.classList.add("dragging");
-  });
-  draggable.addEventListener("dragend", () => {
-    draggable.classList.remove("dragging");
-  });
-});
+// draggables.forEach((draggable) => {
+//   draggable.addEventListener("dragstart", () => {
+//     draggable.classList.add("dragging");
+//   });
+//   draggable.addEventListener("dragend", () => {
+//     draggable.classList.remove("dragging");
+//   });
+// });
 
-forms.forEach((form) => {
-  form.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    const afterElement = getDragAfterElement(form, e.clientY);
-    // console.log(afterElement);
-    const draggable = document.querySelector(".dragging");
+// forms.forEach((form) => {
+//   form.addEventListener("dragover", (e) => {
+//     e.preventDefault();
+//     const afterElement = getDragAfterElement(form, e.clientY);
+//     // console.log(afterElement);
+//     const draggable = document.querySelector(".dragging");
 
-    if (afterElement == null) {
-      form.appendChild(draggable);
-    } else {
-      form.insertBefore(draggable, afterElement);
-    }
-  });
-});
+//     if (afterElement == null) {
+//       form.appendChild(draggable);
+//     } else {
+//       form.insertBefore(draggable, afterElement);
+//     }
+//   });
+// });
 
-function getDragAfterElement(form, y) {
-  const draggableElements = [
-    ...form.querySelectorAll(".draggable:not(.dragging)"),
-  ];
+// function getDragAfterElement(form, y) {
+//   const draggableElements = [
+//     ...form.querySelectorAll(".draggable:not(.dragging)"),
+//   ];
 
-  return draggableElements.reduce(
-    (closest, child) => {
-      const box = child.getBoundingClientRect();
-      // console.log(box)
-      const offset = y - box.top - box.height / 2;
-      console.log(offset);
-      // console.log(closest.offset);
-      if (offset < 0 && offset > closest.offset) {
-        return { offset: offset, element: child };
-      } else {
-        return closest;
-      }
-    },
-    { offset: Number.NEGATIVE_INFINITY }
-  ).element;
-}
+//   return draggableElements.reduce(
+//     (closest, child) => {
+//       const box = child.getBoundingClientRect();
+//       // console.log(box)
+//       const offset = y - box.top - box.height / 2;
+//       console.log(offset);
+//       // console.log(closest.offset);
+//       if (offset < 0 && offset > closest.offset) {
+//         return { offset: offset, element: child };
+//       } else {
+//         return closest;
+//       }
+//     },
+//     { offset: Number.NEGATIVE_INFINITY }
+//   ).element;
+// }
 
 // Delete Function
-const deleteButton = document.querySelectorAll(".delete-button");
-
-deleteButton.forEach((dbutton) => {
-  dbutton.addEventListener("click", (e) => {
-    let timeOfDay = e.target.id.slice(0, 1);
-    let newTarget;
-    let removeDiv;
-function remove(x){
-      while (x.firstChild) {
-              x.removeChild(x.firstChild)
-            }
-        }
+let newTarget;
+let removeDiv = document.getElementById("morning-list");
 
 
+function remove(x) {
+  console.log(x.firstChild);
+  while (x.firstChild) {
+    x.removeChild(x.firstChild);
+  }
+}
+createDeleteButtons();
 
-    switch (timeOfDay) {
-      case "M":
-        // alert("hi")
-        removeDiv = document.getElementById("morning-list");
-        newTarget = e.target.id.slice(15, 17);
-        morningCap.splice(newTarget, 1);
-        remove(removeDiv);
-        addToPage(morningCap);
+function createDeleteButtons() {
+  let deleteButton = document.querySelectorAll(".delete-button");
+  deleteButton.forEach((dbutton) => {
+    dbutton.addEventListener("click", (e) => {
+      // alert("hi")
+      let timeOfDay = e.target.id.slice(0, 1);
+      console.log(timeOfDay);
 
-        break;
-      case "D":
-        break;
-      default:
-    }
+      newTarget = e.target.id.slice(15, 17);
+      let NewTargetInt = parseInt(newTarget);
+      console.log(NewTargetInt);
+
+      morningCap.splice(NewTargetInt, 1);
+      console.log(morningCap);
+      remove(removeDiv);
+      addToPage(morningCap);
+      createDeleteButtons();
+
+    });
   });
+}
+let disappear = document.getElementById("disappear");
+let appear = document.getElementById("appear");
+
+disappear.addEventListener("click", () => {
+  while (removeDiv.firstChild) {
+    removeDiv.removeChild(removeDiv.firstChild);
+  }
+});
+
+appear.addEventListener("click", () => {
+  addToPage(morningCap);
+  createDeleteButtons();
+
+
 });
