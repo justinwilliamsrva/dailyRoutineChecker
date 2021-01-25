@@ -114,7 +114,10 @@ function capital(item) {
 
 // Adding date to page
 let stringDate = date.toDateString();
-
+let mainHeading = document.getElementById("main-heading")
+let newH2 = document.createElement("h2")
+newH2.innerHTML = stringDate;
+mainHeading.insertBefore(newH2, mainHeading.childNodes[2])
 
 
 
