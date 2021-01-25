@@ -1,51 +1,106 @@
 // Arrays
-let morning = [
-  "morning",
-  "water",
-  "Coding",
-  "Milk",
-  "Breakfast base",
-  "Dishwasher",
-  "Smoothie",
-  "Eggs",
-  "Coffee",
-  "Milk",
-  "Smoothie",
-  "Coffee",
-  "Dishwasher",
-  "Lunch",
-];
-let day = ["day", "water", "lesson plans", "emails", "main goals"];
-let evening = [
-  "evening",
-  "exercise",
-  "water",
-  "milk",
-  "litter",
-  "laundry",
-  "cat food and water",
-  "clean dining room",
-  "computer room",
-  "bathroom",
-  "tea",
-  "kitchen",
-  "dishwasher",
-  "coding",
-];
+let date = new Date();
+let currentDate = date.getDate();
+let currentDay = date.getDay();
+console.log(currentDay)
+let morning, day, evening;
 
+function arrayDay() {
+  switch (currentDay) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      morning = [
+        "morning",
+        "water",
+        "Coding",
+        "Milk",
+        "Breakfast base",
+        "Dishwasher",
+        "Smoothie",
+        "Eggs",
+        "Coffee",
+        "Milk",
+        "Smoothie",
+        "Coffee",
+        "Dishwasher",
+        "Lunch",
+      ];
+      day = ["day", "water", "lesson plans", "emails", "main goals"];
+      evening = [
+        "evening",
+        "exercise",
+        "water",
+        "milk",
+        "litter",
+        "laundry",
+        "cat food and water",
+        "clean dining room",
+        "computer room",
+        "bathroom",
+        "tea",
+        "kitchen",
+        "dishwasher",
+        "coding",
+      ];
+
+      break;
+    case 6:
+      morning = [
+        "Laundry room floors",
+        "dining room table",
+        "dining room floors",
+        "Florida Room Organize",
+        "Nursery Toys",
+        "Nursery Books",
+        "Bedroom Clear Floor",
+        "Bedroom Clear Bed",
+        "Kitchen Frig",
+        "Kitchen Floors",
+        "Car Mileage",
+        "Car Clean",
+      ];
+      day = ["Laundry", "water", "lesson plans", "emails", "main goals"];
+      evening = [
+        "evening",
+        "exercise",
+        "water",
+        "milk",
+        "litter",
+        "laundry",
+        "cat food and water",
+        "clean dining room",
+        "computer room",
+        "bathroom",
+        "tea",
+        "kitchen",
+        "dishwasher",
+        "coding",
+      ];
+      break;
+    default:
+      morning = [];
+      day = [];
+      evening = [];
+  }
+}
+arrayDay();
 // Capitalize
+
 let morningCap = morning.map(capital);
 let dayCap = day.map(capital);
 let eveningCap = evening.map(capital);
 let percentage = document.getElementById("percentage");
 let percent;
 let old = localStorage.getItem("date");
-let date = new Date();
-let currentDate = date.getDate();
+
 let month = date.getMonth() + 1;
 let today = date.getDate();
 let year = date.getFullYear();
 let saveDate = `${month}-${today}-${year}`;
+
 const submit = document.getElementById("submit");
 let saveCount;
 
@@ -54,6 +109,15 @@ function capital(item) {
   let str = item[0].toUpperCase() + item.slice(1);
   return str;
 }
+
+
+
+// Adding date to page
+let stringDate = date.toDateString();
+
+
+
+
 // Adding checkboxes to form
 let morningList = document.getElementById("morning-list");
 let dayList = document.getElementById("day-list");
@@ -63,7 +127,10 @@ addToPage(morningCap);
 addToPage(dayCap);
 addToPage(eveningCap);
 
-// init();
+
+
+
+
 function addToPage(arr) {
   for (let i = 1; i < arr.length; i++) {
     let div = document.createElement("div");
