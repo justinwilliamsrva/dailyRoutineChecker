@@ -20,12 +20,8 @@ function arrayDay() {
         "Breakfast base",
         "Dishwasher",
         "Smoothie",
-        "Eggs",
         "Coffee",
-        "Milk",
-        "Smoothie",
-        "Coffee",
-        "Dishwasher",
+        "Clean From breakfast",
         "Lunch",
       ];
       day = ["day", "water", "lesson plans", "emails", "main goals"];
