@@ -568,3 +568,9 @@ function createDeleteButtons() {
     });
   });
 }
+
+
+// Add Tasks to the Page
+
+
+
