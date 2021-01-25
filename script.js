@@ -429,7 +429,7 @@ function saveData() {
   if (confirms) {
     let oldData = localStorage.getItem("SavedData");
     if (oldData) {
-      let newData = oldData + `,${saveDate}:${percent}`;
+      let newData = oldData + `,"${saveDate}":"${percent}"`;
 
       localStorage.setItem("SavedData", newData);
     } else {
