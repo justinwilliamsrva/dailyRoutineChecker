@@ -35,6 +35,11 @@
       <div id="day" class="column">
         <div class="heading">
           <h2 id="day-header" class="heading">Day</h2>
+          <form onsubmit="addTask()">
+            <input id="day-task" placeholder="Add a new task" type="text" />
+            <input type="submit" id="day-add" value="Add" />
+          </form>
+          <br />
           <button id="day-button">Clear</button>
           <button id="check-day">Check All</button>
         </div>
@@ -43,6 +48,11 @@
       <div id="evening" class="column">
         <div class="heading">
           <h2 id="evening-header" class="heading">Evening</h2>
+          <form onsubmit="addTask()">
+            <input id="evening-task" placeholder="Add a new task" type="text" />
+            <input type="submit" id="evening-add" value="Add" />
+          </form>
+          <br />
           <button id="evening-button">Clear</button>
           <button id="check-evening">Check All</button>
         </div>

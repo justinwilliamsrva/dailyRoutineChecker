@@ -2,7 +2,7 @@
 let date = new Date();
 let currentDate = date.getDate();
 let currentDay = date.getDay();
-console.log(currentDay);
+// console.log(currentDay);
 let morning, day, evening;
 
 function arrayDay() {
@@ -433,7 +433,7 @@ function saveData() {
 if (old != currentDate) {
   localStorage.setItem("saveCount", 0);
 }
-console.log(localStorage.getItem("saveCount"));
+// console.log(localStorage.getItem("saveCount"));
 if (
   localStorage.getItem("saveCount") == 0 ||
   localStorage.getItem("saveCount") == null
@@ -496,12 +496,13 @@ function createDraggables() {
   }
 }
 createDraggables();
+
 // Delete Function
 let newTarget;
 let removeDiv = document.getElementById("morning-list");
 let NewTargetInt;
 function remove(x) {
-  console.log(x.firstChild);
+  // console.log(x.firstChild);
   while (x.firstChild) {
     x.removeChild(x.firstChild);
   }
@@ -560,13 +561,35 @@ function createDeleteButtons() {
 // Add Tasks to the Page
 function addTask() {
   event.preventDefault();
-  let newTask = document.getElementById("morning-task").value;
-  morning.push(newTask)
-  console.log(morning)
-  morningCap = morning.map(capital);
-  remove(morningList);
-  addToPage(morningCap);
+  // console.log(event.target.firstChild.nextSibling.id.charAt(0))
+  let eventAddTask = event.target.firstChild.nextSibling.id.charAt(0);
+  let newTask;
+  switch (eventAddTask) {
+    case "m":
+      newTask = document.getElementById("morning-task").value;
+      morning.push(newTask);
+      console.log(morning);
+      morningCap = morning.map(capital);
+      remove(morningList);
+      addToPage(morningCap);
+      break;
+    case "d":
+      newTask = document.getElementById("day-task").value;
+      day.push(newTask);
+      console.log(day);
+      dayCap = day.map(capital);
+      remove(dayList);
+      addToPage(dayCap);
+      break;
+    default:
+      newTask = document.getElementById("evening-task").value;
+      evening.push(newTask);
+      console.log(evening);
+      eveningCap = evening.map(capital);
+      remove(eveningList);
+      addToPage(eveningCap);
+  }
+
   createDeleteButtons();
   createDraggables();
-
 }
