@@ -569,7 +569,7 @@ function addTask() {
     case "m":
       newTask = document.getElementById("morning-task").value;
       morning.push(newTask);
-      console.log(morning);
+      // console.log(morning);
       morningCap = morning.map(capital);
       remove(morningList);
       addToPage(morningCap);
@@ -577,7 +577,7 @@ function addTask() {
     case "d":
       newTask = document.getElementById("day-task").value;
       day.push(newTask);
-      console.log(day);
+      // console.log(day);
       dayCap = day.map(capital);
       remove(dayList);
       addToPage(dayCap);
@@ -585,7 +585,7 @@ function addTask() {
     default:
       newTask = document.getElementById("evening-task").value;
       evening.push(newTask);
-      console.log(evening);
+      // console.log(evening);
       eveningCap = evening.map(capital);
       remove(eveningList);
       addToPage(eveningCap);
@@ -596,22 +596,39 @@ function addTask() {
 }
 
 // Add double click edit
+function createDoubleClick() {
+  let labels = document.querySelectorAll(".label");
 
-let labels = document.querySelectorAll(".label");
+  labels.forEach((label) => {
+    label.addEventListener("dblclick", (e) => {
+      let labelName = e.target.innerHTML;
+      let removeLabel = e.target.parentElement;
+      remove(removeLabel);
+      let textInput = document.createElement("input");
+      textInput.setAttribute("type", "text");
+      textInput.setAttribute("value", labelName);
 
-labels.forEach((label) => {
-  label.addEventListener("dblclick", (e) => {
-    let labelName = e.target.innerHTML;
-    let removeLabel = e.target.parentElement;
-    remove(removeLabel);
-    let textInput = document.createElement("input");
-    textInput.setAttribute("type", "text");
-    textInput.setAttribute("value", labelName);
-    let submitBtn = document.createElement("button")
-    submitBtn.innerHTML ="Save"
+      let submitBtn = document.createElement("button");
+      submitBtn.innerHTML = "Save";
+      submitBtn.addEventListener("click", () => {
+        let taskEdit = event.target.parentElement.firstChild.value;
+        let x;
+        for (x of morningCap) {
+          if (x == labelName) {
+            let n = morningCap.indexOf(x);
+            morningCap[n] = taskEdit;
+            break;
+          }
+        }
+        remove(morningList);
+        addToPage(morningCap);
+        createDeleteButtons();
+        createDraggables();
+        createDoubleClick();
+      });
 
-
-
-      removeLabel.append(textInput,submitBtn);
+      removeLabel.append(textInput, submitBtn);
+    });
   });
-});
+}
+createDoubleClick();
