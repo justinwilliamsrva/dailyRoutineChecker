@@ -607,8 +607,17 @@ function createDoubleClick() {
       let textInput = document.createElement("input");
       textInput.setAttribute("type", "text");
       textInput.setAttribute("value", labelName);
-
+      let cancelBtn = document.createElement("button");
+      cancelBtn.innerHTML = "Cancel";
+      cancelBtn.addEventListener("click", () => {
+        remove(morningList);
+        addToPage(morningCap);
+        createDeleteButtons();
+        createDraggables();
+        createDoubleClick();
+      });
       let submitBtn = document.createElement("button");
+      submitBtn.setAttribute("style", "background-color:lightgreen");
       submitBtn.innerHTML = "Save";
       submitBtn.addEventListener("click", () => {
         let taskEdit = event.target.parentElement.firstChild.value;
@@ -627,7 +636,7 @@ function createDoubleClick() {
         createDoubleClick();
       });
 
-      removeLabel.append(textInput, submitBtn);
+      removeLabel.append(textInput, submitBtn, cancelBtn);
     });
   });
 }
