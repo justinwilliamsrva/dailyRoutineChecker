@@ -133,6 +133,7 @@ function addToPage(arr) {
     input.setAttribute("id", arr[0] + i);
     input.setAttribute("class", arr[0] + "Class");
     let label = document.createElement("label");
+    label.setAttribute("class", "label");
 
     label.innerHTML = arr[i];
     let xButton = document.createElement("button", { style: "color:green" });
@@ -593,3 +594,24 @@ function addTask() {
   createDeleteButtons();
   createDraggables();
 }
+
+// Add double click edit
+
+let labels = document.querySelectorAll(".label");
+
+labels.forEach((label) => {
+  label.addEventListener("dblclick", (e) => {
+    let labelName = e.target.innerHTML;
+    let removeLabel = e.target.parentElement;
+    remove(removeLabel);
+    let textInput = document.createElement("input");
+    textInput.setAttribute("type", "text");
+    textInput.setAttribute("value", labelName);
+    let submitBtn = document.createElement("button")
+    submitBtn.innerHTML ="Save"
+
+
+
+      removeLabel.append(textInput,submitBtn);
+  });
+});
