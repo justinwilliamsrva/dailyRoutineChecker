@@ -2,7 +2,7 @@
 let date = new Date();
 let currentDate = date.getDate();
 let currentDay = date.getDay();
-console.log(currentDay)
+console.log(currentDay);
 let morning, day, evening;
 
 function arrayDay() {
@@ -106,16 +106,12 @@ function capital(item) {
   return str;
 }
 
-
-
 // Adding date to page
 let stringDate = date.toDateString();
-let mainHeading = document.getElementById("main-heading")
-let newH2 = document.createElement("h2")
+let mainHeading = document.getElementById("main-heading");
+let newH2 = document.createElement("h2");
 newH2.innerHTML = stringDate;
-mainHeading.insertBefore(newH2, mainHeading.childNodes[2])
-
-
+mainHeading.insertBefore(newH2, mainHeading.childNodes[2]);
 
 // Adding checkboxes to form
 let morningList = document.getElementById("morning-list");
@@ -125,10 +121,6 @@ let eveningList = document.getElementById("evening-list");
 addToPage(morningCap);
 addToPage(dayCap);
 addToPage(eveningCap);
-
-
-
-
 
 function addToPage(arr) {
   for (let i = 1; i < arr.length; i++) {
@@ -565,8 +557,16 @@ function createDeleteButtons() {
   });
 }
 
-
 // Add Tasks to the Page
+function addTask() {
+  event.preventDefault();
+  let newTask = document.getElementById("morning-task").value;
+  morning.push(newTask)
+  console.log(morning)
+  morningCap = morning.map(capital);
+  remove(morningList);
+  addToPage(morningCap);
+  createDeleteButtons();
+  createDraggables();
 
-
-
+}

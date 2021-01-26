@@ -9,25 +9,24 @@
   <body>
     <input type="checkbox" id="reset-date" />
     <label>Reset each day</label>
-    <div id="main-heading"class="heading">
+    <div id="main-heading" class="heading">
       <h1 id="title" class="heading">Daily Checklist</h1>
       <h2><span id="percentage"></span>%</h2>
       <div id="button-group">
         <button id="clear-all">Clear All</button>
         <button id="check-all">Check All</button>
         <button id="submit">Submit</button>
-
       </div>
     </div>
     <div id="grid-container">
       <div id="morning" class="column">
         <div class="heading">
           <h2 id="morning-header" class="heading">Morning</h2>
-          <form>
-          <input placeholder="Add a new task" type="text"/>
-          <input type="submit" id="morning-add"value="Add">
+          <form onsubmit="addTask()">
+            <input id="morning-task" placeholder="Add a new task" type="text" />
+            <input type="submit" id="morning-add" value="Add" />
           </form>
-          <br>
+          <br />
           <button id="morning-button">Clear</button>
           <button id="check-morning">Check All</button>
         </div>
@@ -47,7 +46,7 @@
           <button id="evening-button">Clear</button>
           <button id="check-evening">Check All</button>
         </div>
-        <div class="form"  id="evening-list"></div>
+        <div class="form" id="evening-list"></div>
       </div>
     </div>
     <script src="script.js"></script>
