@@ -608,7 +608,8 @@ function createDoubleClick() {
       textInput.setAttribute("type", "text");
       textInput.setAttribute("value", labelName);
       let cancelBtn = document.createElement("button");
-      cancelBtn.innerHTML = "Cancel";
+      cancelBtn.setAttribute("style", "background-color:coral");
+      cancelBtn.innerHTML = "X";
       cancelBtn.addEventListener("click", () => {
         remove(morningList);
         addToPage(morningCap);
