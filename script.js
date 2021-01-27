@@ -568,6 +568,7 @@ function addTask() {
   // console.log(event.target.firstChild.nextSibling.id.charAt(0))
   let eventAddTask = event.target.firstChild.nextSibling.id.charAt(0);
   let newTask;
+  let placeholder;
   switch (eventAddTask) {
     case "m":
       newTask = document.getElementById("morning-task").value;
@@ -576,6 +577,8 @@ function addTask() {
       morningCap = morning.map(capital);
       remove(morningList);
       addToPage(morningCap);
+      document.getElementById("morning-task").value = "";
+
       break;
     case "d":
       newTask = document.getElementById("day-task").value;
@@ -584,6 +587,7 @@ function addTask() {
       dayCap = day.map(capital);
       remove(dayList);
       addToPage(dayCap);
+      document.getElementById("day-task").value = "";
       break;
     default:
       newTask = document.getElementById("evening-task").value;
@@ -592,6 +596,8 @@ function addTask() {
       eveningCap = evening.map(capital);
       remove(eveningList);
       addToPage(eveningCap);
+      document.getElementById("evening-task").value = "";
+
   }
 
   createDeleteButtons();
@@ -705,8 +711,6 @@ function createDoubleClick() {
           removeLabel.append(textInput, submitBtn, cancelBtn);
           break;
       }
-
-
     });
   });
 }
