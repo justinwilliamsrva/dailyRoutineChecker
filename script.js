@@ -516,7 +516,7 @@ function createDeleteButtons() {
     dbutton.addEventListener("click", (e) => {
       // alert("hi")
       let timeOfDay = e.target.id.slice(0, 1);
-      console.log(timeOfDay);
+      // console.log(timeOfDay);
       switch (timeOfDay) {
         case "M":
           newTarget = e.target.id.slice(15, 17);
@@ -529,6 +529,7 @@ function createDeleteButtons() {
           addToPage(morningCap);
           createDeleteButtons();
           createDraggables();
+          createDoubleClick();
           break;
         case "D":
           newTarget = e.target.id.slice(11, 13);
@@ -541,6 +542,7 @@ function createDeleteButtons() {
           addToPage(dayCap);
           createDeleteButtons();
           createDraggables();
+          createDoubleClick();
           break;
         default:
           newTarget = e.target.id.slice(15, 17);
@@ -553,6 +555,7 @@ function createDeleteButtons() {
           addToPage(eveningCap);
           createDeleteButtons();
           createDraggables();
+          createDoubleClick();
           break;
       }
     });
@@ -593,6 +596,7 @@ function addTask() {
 
   createDeleteButtons();
   createDraggables();
+  createDoubleClick();
 }
 
 // Add double click edit
@@ -603,6 +607,8 @@ function createDoubleClick() {
     label.addEventListener("dblclick", (e) => {
       let labelName = e.target.innerHTML;
       let removeLabel = e.target.parentElement;
+      let source = e.target.parentElement.parentElement.id.charAt(0);
+      // console.log(source);
       remove(removeLabel);
       let textInput = document.createElement("input");
       textInput.setAttribute("type", "text");
@@ -610,34 +616,97 @@ function createDoubleClick() {
       let cancelBtn = document.createElement("button");
       cancelBtn.setAttribute("style", "background-color:coral");
       cancelBtn.innerHTML = "X";
-      cancelBtn.addEventListener("click", () => {
-        remove(morningList);
-        addToPage(morningCap);
-        createDeleteButtons();
-        createDraggables();
-        createDoubleClick();
-      });
       let submitBtn = document.createElement("button");
       submitBtn.setAttribute("style", "background-color:lightgreen");
       submitBtn.innerHTML = "Save";
-      submitBtn.addEventListener("click", () => {
-        let taskEdit = event.target.parentElement.firstChild.value;
-        let x;
-        for (x of morningCap) {
-          if (x == labelName) {
-            let n = morningCap.indexOf(x);
-            morningCap[n] = taskEdit;
-            break;
-          }
-        }
-        remove(morningList);
-        addToPage(morningCap);
-        createDeleteButtons();
-        createDraggables();
-        createDoubleClick();
-      });
+      switch (source) {
+        case "m":
+          cancelBtn.addEventListener("click", () => {
+            remove(morningList);
+            addToPage(morningCap);
+            createDeleteButtons();
+            createDraggables();
+            createDoubleClick();
+          });
 
-      removeLabel.append(textInput, submitBtn, cancelBtn);
+          submitBtn.addEventListener("click", () => {
+            let taskEdit = event.target.parentElement.firstChild.value;
+            let x;
+            for (x of morningCap) {
+              if (x == labelName) {
+                let n = morningCap.indexOf(x);
+                morningCap[n] = taskEdit;
+                break;
+              }
+            }
+            remove(morningList);
+            addToPage(morningCap);
+            createDeleteButtons();
+            createDraggables();
+            createDoubleClick();
+          });
+
+          removeLabel.append(textInput, submitBtn, cancelBtn);
+          break;
+        case "d":
+          cancelBtn.addEventListener("click", () => {
+            remove(dayList);
+            addToPage(dayCap);
+            createDeleteButtons();
+            createDraggables();
+            createDoubleClick();
+          });
+
+          submitBtn.addEventListener("click", () => {
+            let taskEdit = event.target.parentElement.firstChild.value;
+            let x;
+            for (x of dayCap) {
+              if (x == labelName) {
+                let n = dayCap.indexOf(x);
+                dayCap[n] = taskEdit;
+                break;
+              }
+            }
+            remove(dayList);
+            addToPage(dayCap);
+            createDeleteButtons();
+            createDraggables();
+            createDoubleClick();
+          });
+
+          removeLabel.append(textInput, submitBtn, cancelBtn);
+          break;
+        default:
+          cancelBtn.addEventListener("click", () => {
+            remove(eveningList);
+            addToPage(eveningCap);
+            createDeleteButtons();
+            createDraggables();
+            createDoubleClick();
+          });
+
+          submitBtn.addEventListener("click", () => {
+            let taskEdit = event.target.parentElement.firstChild.value;
+            let x;
+            for (x of eveningCap) {
+              if (x == labelName) {
+                let n = eveningCap.indexOf(x);
+                eveningCap[n] = taskEdit;
+                break;
+              }
+            }
+            remove(eveningList);
+            addToPage(eveningCap);
+            createDeleteButtons();
+            createDraggables();
+            createDoubleClick();
+          });
+
+          removeLabel.append(textInput, submitBtn, cancelBtn);
+          break;
+      }
+
+
     });
   });
 }
