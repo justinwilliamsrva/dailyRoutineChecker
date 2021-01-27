@@ -597,7 +597,6 @@ function addTask() {
       remove(eveningList);
       addToPage(eveningCap);
       document.getElementById("evening-task").value = "";
-
   }
 
   createDeleteButtons();
@@ -715,3 +714,15 @@ function createDoubleClick() {
   });
 }
 createDoubleClick();
+
+// Show percentages for each day
+let mySavedDate = localStorage.getItem("SavedData");
+let mySavedData = '{"1-22-2021":"96","1-24-2021":"100","1-25-2021":"100"}';
+let tryThis = `{${mySavedDate}}`
+
+console.log(mySavedData == tryThis)
+console.log(mySavedData)
+console.log(tryThis)
+let mySavedObject = JSON.parse(tryThis);
+console.log(mySavedObject)
+
