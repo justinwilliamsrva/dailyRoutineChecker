@@ -176,18 +176,20 @@ function removeSibling(x) {
   }
 }
 let percentTable = document.getElementById("percent-table");
-let headingTable = document.getElementById("table-heading");
+let tableBody = document.getElementById("table-body");
+// console.log(headingTable.nextSibling);
+// console.log(object)
 let showPercent = () => {
   let mySavedDate = localStorage.getItem("SavedData");
   let tryThis = `{${mySavedDate}}`;
 
   let mySavedObject = JSON.parse(tryThis);
-  // console.log(mySavedObject/);
+  remove(tableBody);
 
   for (const property in mySavedObject) {
     let tr = document.createElement("tr");
     tr.innerHTML = `<td>${property}</td><td>${mySavedObject[property]}%</td>`;
-    percentTable.append(tr);
+    tableBody.append(tr);
   }
 };
 
@@ -456,7 +458,7 @@ function saveData() {
     }
     submit.setAttribute("style", "display:none");
   }
-  removeSibling(headingTable);
+
   showPercent();
 }
 if (old != currentDate) {
