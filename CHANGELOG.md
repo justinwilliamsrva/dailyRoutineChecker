@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.1.3...v1.1.4) (2021-02-02)
+
+
+### Bug Fixes
+
+* can add task wthout adding removed tasks ([d6e279c](https://github.com/justinwilliamsrva/dailyRoutineChecker/commit/d6e279c6ad2f875980c4757e88500a5f2fb995c3))
+
 ### [1.1.3](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.1.2...v1.1.3) (2021-02-02)
 
 
