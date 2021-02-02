@@ -127,8 +127,6 @@ function addToPage(arr) {
     let div = document.createElement("div");
     div.setAttribute("draggable", "true");
     div.setAttribute("class", "draggable");
-    div.setAttribute("class", "touchable");
-    div.setAttribute("touchable", "true");
 
     let input = document.createElement("input");
     input.setAttribute("type", "checkbox");
@@ -533,57 +531,6 @@ function createDraggables() {
 createDraggables();
 
 // Touchable items
-function createDraggables() {
-  const draggables = document.querySelectorAll(".touchable");
-  const forms = document.querySelectorAll(".form");
-
-  draggables.forEach((draggable) => {
-    draggable.addEventListener("touchmove", () => {
-      draggable.classList.add("touchable");
-    });
-    draggable.addEventListener("touchend", () => {
-      draggable.classList.remove("touchable");
-    });
-  });
-
-  forms.forEach((form) => {
-    form.addEventListener("dragover", (e) => {
-      e.preventDefault();
-      const afterElement = getDragAfterElement(form, e.clientY);
-      // console.log(afterElement);
-      const draggable = document.querySelector(".dragging");
-
-      if (afterElement == null) {
-        form.appendChild(draggable);
-      } else {
-        form.insertBefore(draggable, afterElement);
-      }
-    });
-  });
-
-  function getDragAfterElement(form, y) {
-    const draggableElements = [
-      ...form.querySelectorAll(".draggable:not(.dragging)"),
-    ];
-
-    return draggableElements.reduce(
-      (closest, child) => {
-        const box = child.getBoundingClientRect();
-        // console.log(box)
-        const offset = y - box.top - box.height / 2;
-        console.log(offset);
-        // console.log(closest.offset);
-        if (offset < 0 && offset > closest.offset) {
-          return { offset: offset, element: child };
-        } else {
-          return closest;
-        }
-      },
-      { offset: Number.NEGATIVE_INFINITY }
-    ).element;
-  }
-}
-createDraggables();
 
 // Delete Function
 let newTarget;
