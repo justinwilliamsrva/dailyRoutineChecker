@@ -130,7 +130,6 @@ function addToPage(arr) {
     div.setAttribute("class", "touchable");
     div.setAttribute("touchable", "true");
 
-
     let input = document.createElement("input");
     input.setAttribute("type", "checkbox");
     input.setAttribute("name", arr[0]);
@@ -390,7 +389,6 @@ function checkAllFunc() {
   checkingEvening();
 }
 
-// console.log(old + currentDate);
 let resetDate = document.getElementById("reset-date");
 resetDate.addEventListener("click", saveCheck);
 
@@ -411,7 +409,9 @@ function getCheck() {
 }
 
 function resetOnDate() {
-  if (old != currentDate) {
+  if (!old) {
+    return;
+  } else if (old != currentDate) {
     clearAllFunc();
     localStorage.setItem("date", currentDate);
   }
