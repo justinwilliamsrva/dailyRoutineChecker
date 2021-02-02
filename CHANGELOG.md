@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.5](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.1.4...v1.1.5) (2021-02-02)
+
+
+### Bug Fixes
+
+* removed touchable classes and js. drag works ([4f4c05c](https://github.com/justinwilliamsrva/dailyRoutineChecker/commit/4f4c05caacf69a5b23579f8ecec421029d0eaabc))
+
 ### [1.1.4](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.1.3...v1.1.4) (2021-02-02)
 
 
