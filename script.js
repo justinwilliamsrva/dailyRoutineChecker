@@ -659,30 +659,30 @@ function addTask() {
   switch (eventAddTask) {
     case "m":
       newTask = document.getElementById("morning-task").value;
-      morning.push(newTask);
+      morningCap.push(newTask);
       // console.log(morning);
-      morningCap = morning.map(capital);
+      morningCaps = morningCap.map(capital);
       remove(morningList);
-      addToPage(morningCap);
+      addToPage(morningCaps);
       document.getElementById("morning-task").value = "";
 
       break;
     case "d":
       newTask = document.getElementById("day-task").value;
-      day.push(newTask);
+      dayCap.push(newTask);
       // console.log(day);
-      dayCap = day.map(capital);
+      dayCaps = dayCap.map(capital);
       remove(dayList);
-      addToPage(dayCap);
+      addToPage(dayCaps);
       document.getElementById("day-task").value = "";
       break;
     default:
       newTask = document.getElementById("evening-task").value;
-      evening.push(newTask);
+      eveningCap.push(newTask);
       // console.log(evening);
-      eveningCap = evening.map(capital);
+      eveningCaps = eveningCap.map(capital);
       remove(eveningList);
-      addToPage(eveningCap);
+      addToPage(eveningCaps);
       document.getElementById("evening-task").value = "";
   }
 
