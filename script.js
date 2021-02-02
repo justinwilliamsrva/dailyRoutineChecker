@@ -410,7 +410,7 @@ function getCheck() {
 
 function resetOnDate() {
   if (!old) {
-    return;
+    localStorage.setItem("date", currentDate);
   } else if (old != currentDate) {
     clearAllFunc();
     localStorage.setItem("date", currentDate);
@@ -611,7 +611,7 @@ function createDeleteButtons() {
           // console.log(NewTargetInt);
 
           morningCap.splice(NewTargetInt, 1);
-          // console.log(morningCap);
+          console.log(morningCap);
           remove(morningList);
           addToPage(morningCap);
           createDeleteButtons();
@@ -700,7 +700,7 @@ function createDoubleClick() {
       let labelName = e.target.innerHTML;
       let removeLabel = e.target.parentElement;
       let source = e.target.parentElement.parentElement.id.charAt(0);
-      // console.log(source);
+
       remove(removeLabel);
       let textInput = document.createElement("input");
       textInput.setAttribute("type", "text");
