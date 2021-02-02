@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.1.2...v1.1.3) (2021-02-02)
+
+
+### Bug Fixes
+
+* add save date to local st to reset button ([6eb21ee](https://github.com/justinwilliamsrva/dailyRoutineChecker/commit/6eb21ee91d8435d73974fe4cdcfe1224161a0bfd))
+
 ### [1.1.2](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.1.1...v1.1.2) (2021-02-02)
 
 ### [1.1.1](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.1.0...v1.1.1) (2021-02-01)
