@@ -443,13 +443,13 @@ function evaluate() {
 
 // Submit Daily Percent
 function saveData() {
-  saveCount = 0;
-  saveCount++;
-  localStorage.setItem("saveCount", saveCount);
-  let confirms = confirm(
-    `Warning: You can only submit your percentage once a day. Would you like to submit your data for ${saveDate}?`
-  );
-  if (confirms) {
+  // saveCount = 0;
+  // saveCount++;
+  // localStorage.setItem("saveCount", saveCount);
+  // let confirms = confirm(
+  //   `Warning: You can only submit your percentage once a day. Would you like to submit your data for ${saveDate}?`
+  // );
+  // if (confirms) {
     let oldData = localStorage.getItem("SavedData");
     if (oldData) {
       let newData = oldData + `,"${saveDate}":"${percent}"`;
@@ -458,23 +458,23 @@ function saveData() {
     } else {
       localStorage.setItem("SavedData", `"${saveDate}":"${percent}"`);
     }
-    submit.setAttribute("style", "display:none");
-  }
+    // submit.setAttribute("style", "display:none");
+  // }
 
   showPercent();
 }
-if (old != currentDate) {
-  localStorage.setItem("saveCount", 0);
-}
+// if (old != currentDate) {
+//   localStorage.setItem("saveCount", 0);
+// }
 // console.log(localStorage.getItem("saveCount"));
-if (
-  localStorage.getItem("saveCount") == 0 ||
-  localStorage.getItem("saveCount") == null
-) {
-  submit.setAttribute("style", "display:inline");
-} else {
-  submit.setAttribute("style", "display:none");
-}
+// if (
+//   localStorage.getItem("saveCount") == 0 ||
+//   localStorage.getItem("saveCount") == null
+// ) {
+//   submit.setAttribute("style", "display:inline");
+// } else {
+//   submit.setAttribute("style", "display:none");
+// }
 submit.addEventListener("click", saveData);
 
 // Draggable items
