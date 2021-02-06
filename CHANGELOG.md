@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.2.0...v1.2.1) (2021-02-06)
+
+
+### Bug Fixes
+
+* removed bug that made saturday tasks not show up ([512e7f0](https://github.com/justinwilliamsrva/dailyRoutineChecker/commit/512e7f09d05806ea568f012a19b1bfd35ebed00b))
+
 ## [1.2.0](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.1.6...v1.2.0) (2021-02-03)
 
 ### [1.1.6](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.1.5...v1.1.6) (2021-02-02)
