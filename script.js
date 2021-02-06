@@ -2,7 +2,7 @@
 let date = new Date();
 let currentDate = date.getDate();
 let currentDay = date.getDay();
-// console.log(currentDay);
+console.log(currentDay);
 let morning, day, evening;
 
 function arrayDay() {
@@ -45,6 +45,7 @@ function arrayDay() {
       break;
     case 6:
       morning = [
+        "morning",
         "Laundry room floors",
         "dining room table",
         "dining room floors",
@@ -58,10 +59,10 @@ function arrayDay() {
         "Car Mileage",
         "Car Clean",
       ];
-      day = ["Laundry", "water", "lesson plans", "emails", "main goals"];
+      day = ["day","Laundry", "water", "lesson plans", "emails", "main goals"];
       evening = [
         "evening",
-        "exercise",
+        "exercising",
         "water",
         "milk",
         "litter",
