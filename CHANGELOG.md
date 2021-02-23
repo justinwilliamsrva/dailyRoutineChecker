@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.4.0...v2.0.0) (2021-02-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* ad indexdb
+
+### refractor
+
+* ad indexdb ([d03efe0](https://github.com/justinwilliamsrva/dailyRoutineChecker/commit/d03efe0a75dd45138205a98954c336330fed15b9))
+
 ## [1.4.0](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.3.1...v1.4.0) (2021-02-23)
 
 
