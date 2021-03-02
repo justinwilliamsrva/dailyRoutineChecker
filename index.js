@@ -12,11 +12,20 @@ import {
   createStore,
 } from "https://cdn.jsdelivr.net/npm/idb-keyval@5/dist/esm/index.js";
 
+// Adding date to page
+let date = new Date();
+let stringDate = date.toDateString();
+let mainHeading = document.getElementById("main-heading");
+let newH2 = document.createElement("h2");
+newH2.innerHTML = stringDate;
+mainHeading.insertBefore(newH2, mainHeading.childNodes[2]);
+
+// Create INDEX DB DATABASE
 keys()
   .then((resp) => {
     console.log(resp);
     if (resp[0] !== "morning") {
-      let morning = ["one item", "two Items"];
+      let morning = ["first item", "second items"];
       set("morning", morning)
         .then(() => {
           console.log("saved morning");
@@ -25,6 +34,8 @@ keys()
     }
   })
   .catch(console.warn);
+
+// DISPLAY ITEMS ON PAGE
 
 // ADD ITEM
 let morningAdd = document.getElementById("morning-add");
