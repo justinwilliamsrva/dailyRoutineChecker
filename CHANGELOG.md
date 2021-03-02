@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v2.0.0...v2.1.0) (2021-03-02)
+
+
+### Features
+
+* Added date to page ([dbc5bf2](https://github.com/justinwilliamsrva/dailyRoutineChecker/commit/dbc5bf205a247a6591554412fd68ac935fb42fe4))
+
 ## [2.0.0](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v1.4.0...v2.0.0) (2021-02-23)
 
 
