@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v2.1.0...v2.1.1) (2021-03-02)
+
+
+### Bug Fixes
+
+* Adding to page nwo works properly ([8a915a5](https://github.com/justinwilliamsrva/dailyRoutineChecker/commit/8a915a533de87e042939cde17202339dc66bf7be))
+
 ## [2.1.0](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v2.0.0...v2.1.0) (2021-03-02)
 
 
