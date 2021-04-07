@@ -45,6 +45,7 @@ function arrayDay() {
         "cat food and water",
         "clean dining room",
         "computer room",
+        "charge headphones",
         "bathroom",
         "tea",
         "kitchen",
@@ -89,6 +90,7 @@ function arrayDay() {
         "cat food and water",
         "clean dining room",
         "computer room",
+        "charge headphones",
         "bathroom",
         "tea",
         "kitchen",
@@ -96,6 +98,7 @@ function arrayDay() {
         "coffee maker",
         "Prepare energy drink and water",
         "Pack for school and baby",
+        "Find Keys, Wallet, Phone",
         "Exercise Clothes",
         "Next Day Clothes",
       ];
@@ -120,7 +123,7 @@ function arrayDay() {
         "Make Lunches",
         "Make Dinners",
       ];
-      evening = ["evening"];
+      evening = ["evening", "Find Keys, Wallet, Phone"];
       break;
     case 7:
       morning = [
@@ -157,6 +160,9 @@ function arrayDay() {
         "kitchen",
         "dishwasher",
         "coffee maker",
+        "charge headphones",
+        "charge keyboard",
+        "Find Keys, Wallet, Phone",
         "Prepare energy drink and water",
         "Pack for school and baby",
         "Exercise Clothes",
