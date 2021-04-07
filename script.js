@@ -118,6 +118,7 @@ function arrayDay() {
       day = [
         "day",
         "Make Weekend Dinner",
+        "Fill Pill Bottle",
         "Make Smoothie",
         "Cut Breakfast",
         "Make Lunches",
