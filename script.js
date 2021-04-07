@@ -11,10 +11,10 @@ function arrayDay() {
     case 2:
     case 3:
     case 4:
-    case 5:
       morning = [
         "morning",
-        "water",
+        "Water",
+        "Exercise",
         "Coding",
         "Milk",
         "Breakfast base",
@@ -24,7 +24,17 @@ function arrayDay() {
         "Clean From breakfast",
         "Lunch",
       ];
-      day = ["day", "water", "lesson plans", "emails", "main goals"];
+      day = [
+        "day",
+        "water",
+        "finances",
+        "emails",
+        "lesson plans",
+        "french",
+        "Ellis Reading",
+        "Church",
+        "Cleaning",
+      ];
       evening = [
         "evening",
         "exercise",
@@ -39,30 +49,37 @@ function arrayDay() {
         "tea",
         "kitchen",
         "dishwasher",
-        "coding",
+        "Exercise Clothes",
+        "Next Day Clothes",
       ];
 
       break;
-    case 6:
+    case 5:
       morning = [
         "morning",
-        "Laundry room floors",
-        "dining room table",
-        "dining room floors",
-        "Florida Room Organize",
-        "Nursery Toys",
-        "Nursery Books",
-        "Bedroom Clear Floor",
-        "Bedroom Clear Bed",
-        "Kitchen Frig",
-        "Kitchen Floors",
-        "Car Mileage",
-        "Car Clean",
+        "Water",
+        "Exercise",
+        "Coding",
+        "Milk",
+        "Breakfast base",
+        "Dishwasher",
+        "Smoothie",
+        "Coffee",
+        "Clean From breakfast",
+        "Lunch",
       ];
-      day = ["day","Laundry", "water", "lesson plans", "emails", "main goals"];
+      day = [
+        "day",
+        "water",
+        "finances",
+        "emails",
+        "lesson plans",
+        "Grading",
+        "Cleaning",
+      ];
       evening = [
         "evening",
-        "exercising",
+        "exercise",
         "water",
         "milk",
         "litter",
@@ -74,8 +91,32 @@ function arrayDay() {
         "tea",
         "kitchen",
         "dishwasher",
-        "coding",
+        "Exercise Clothes",
+        "Next Day Clothes",
       ];
+    case 6:
+    case 7:
+      morning = [
+        "morning",
+        "Laundry: Crib Sheets, Pillow Cases, Sheets, Covers, Hamper, Floor",
+        "Laundry Room: Litter, Organize, Floors, Trash",
+        "Dining Room: Clean Floor, Wipe Down Table",
+        "BathRooms: Mirrors, Floors",
+        "Living Room: Under Couch",
+        "Nursery: Diapers, Under Crib, Diaper Genie",
+        "Bedroom: Floor, Organize, UnderBed",
+        "Kitchen: Clear Counter, Wipe Counter Floors, Cat water Bowl, Fridge",
+        "Outside: Back Porch, Honda, Volvo, Trash or Recycling",
+      ];
+      day = [
+        "day",
+        "Make Weekend Dinner",
+        "Make Smoothie",
+        "Cut Breakfast",
+        "Make Lunches",
+        "Make Dinners",
+      ];
+      evening = ["evening"];
       break;
     default:
       morning = [];
@@ -451,15 +492,15 @@ function saveData() {
   //   `Warning: You can only submit your percentage once a day. Would you like to submit your data for ${saveDate}?`
   // );
   // if (confirms) {
-    let oldData = localStorage.getItem("SavedData");
-    if (oldData) {
-      let newData = oldData + `,"${saveDate}":"${percent}"`;
+  let oldData = localStorage.getItem("SavedData");
+  if (oldData) {
+    let newData = oldData + `,"${saveDate}":"${percent}"`;
 
-      localStorage.setItem("SavedData", newData);
-    } else {
-      localStorage.setItem("SavedData", `"${saveDate}":"${percent}"`);
-    }
-    // submit.setAttribute("style", "display:none");
+    localStorage.setItem("SavedData", newData);
+  } else {
+    localStorage.setItem("SavedData", `"${saveDate}":"${percent}"`);
+  }
+  // submit.setAttribute("style", "display:none");
   // }
 
   showPercent();

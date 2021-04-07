@@ -13,6 +13,9 @@ import {
 } from "https://cdn.jsdelivr.net/npm/idb-keyval@5/dist/esm/index.js";
 // Declarations
 let morningList = document.getElementById("morning-list");
+let newTarget;
+let removeDiv = document.getElementById("morning-list");
+let NewTargetInt;
 
 // Adding date to page
 let date = new Date();
@@ -23,21 +26,22 @@ newH2.innerHTML = stringDate;
 mainHeading.insertBefore(newH2, mainHeading.childNodes[2]);
 
 // Create INDEX DB DATABASE
-keys()
-  .then((resp) => {
-    // console.log(resp);
-    if (resp[0] !== "morning") {
-      let morning = ["first item", "second items"];
-      set("morning", morning)
-        .then(() => {
-          console.log("saved morning");
-        })
-        .catch(console.warn);
-    }
-    displayItems();
-  })
-  .catch(console.warn);
-
+function indexDB() {
+  keys()
+    .then((resp) => {
+      // console.log(resp);
+      if (resp[0] !== "morning") {
+        let morning = ["first item", "second items"];
+        set("morning", morning)
+          .then(() => {
+            console.log("saved morning");
+          })
+          .catch(console.warn);
+      }
+      displayItems();
+    })
+    .catch(console.warn);
+}
 // captialize
 function capital(item) {
   let str = item[0].toUpperCase() + item.slice(1);
@@ -100,7 +104,6 @@ function addToPage(arr) {
 
 // ADD ITEM
 let morningAdd = document.getElementById("morning-add");
-morningAdd.addEventListener("click", addTask);
 
 function addTask() {
   event.preventDefault();
@@ -125,3 +128,27 @@ function remove(x) {
     x.removeChild(x.firstChild);
   }
 }
+
+// DELETE BUTTONS
+
+
+function createDeleteButtons() {
+let deleteButton = document.getElementsByClassName("delete-button");
+console.log(deleteButton)
+const deleteButtons = [...document.getElementsByClassName('delete-button')];
+
+// let deleteButtons = toArray(deleteButton)
+console.log(typeof (deleteButtons));
+console.log(deleteButtons[0])
+deleteButtons.forEach((dbutton) => {
+  dbutton.addEventListener("click", (e) => {
+    alert("hi");
+  });
+});
+}
+
+
+//Functions
+indexDB();
+morningAdd.addEventListener("click", addTask);
+createDeleteButtons();
