@@ -79,7 +79,6 @@ function arrayDay() {
       ];
       evening = [
         "evening",
-        "exercise",
         "water",
         "milk",
         "litter",
@@ -91,11 +90,12 @@ function arrayDay() {
         "tea",
         "kitchen",
         "dishwasher",
+        "Prepare energy drink and water",
+        "Pack for school and baby",
         "Exercise Clothes",
         "Next Day Clothes",
       ];
     case 6:
-    case 7:
       morning = [
         "morning",
         "Laundry: Crib Sheets, Pillow Cases, Sheets, Covers, Hamper, Floor",
@@ -118,6 +118,45 @@ function arrayDay() {
       ];
       evening = ["evening"];
       break;
+    case 7:
+      morning = [
+        "morning",
+        "Laundry: Crib Sheets, Pillow Cases, Sheets, Covers, Hamper, Floor",
+        "Laundry Room: Litter, Organize, Floors, Trash",
+        "Dining Room: Clean Floor, Wipe Down Table",
+        "BathRooms: Mirrors, Floors",
+        "Living Room: Under Couch",
+        "Nursery: Diapers, Under Crib, Diaper Genie",
+        "Bedroom: Floor, Organize, UnderBed",
+        "Kitchen: Clear Counter, Wipe Counter Floors, Cat water Bowl, Fridge",
+        "Outside: Back Porch, Honda, Volvo, Trash or Recycling",
+      ];
+      day = [
+        "day",
+        "Make Weekend Dinner",
+        "Make Smoothie",
+        "Cut Breakfast",
+        "Make Lunches",
+        "Make Dinners",
+      ];
+      evening = [
+        "evening",
+        "water",
+        "milk",
+        "litter",
+        "laundry",
+        "cat food and water",
+        "clean dining room",
+        "computer room",
+        "bathroom",
+        "tea",
+        "kitchen",
+        "dishwasher",
+        "Prepare energy drink and water",
+        "Pack for school and baby",
+        "Exercise Clothes",
+        "Next Day Clothes",
+      ];
     default:
       morning = [];
       day = [];
