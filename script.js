@@ -112,9 +112,11 @@ function arrayDay() {
         "BathRooms: Mirrors, Floors",
         "Living Room: Under Couch",
         "Nursery: Diapers, Under Crib, Diaper Genie",
+        "Computer: Organize, Under Futon",
         "Bedroom: Floor, Organize, UnderBed",
         "Kitchen: Clear Counter, Wipe Counter Floors, Cat water Bowl, Fridge",
         "Outside: Back Porch, Honda, Volvo, Trash or Recycling",
+        "Personal: Nails, Shave, Nose",
       ];
       day = [
         "day",
@@ -136,9 +138,11 @@ function arrayDay() {
         "BathRooms: Mirrors, Floors",
         "Living Room: Under Couch",
         "Nursery: Diapers, Under Crib, Diaper Genie",
+        "Computer: Organize, Under Futon",
         "Bedroom: Floor, Organize, UnderBed",
         "Kitchen: Clear Counter, Wipe Counter Floors, Cat water Bowl, Fridge",
         "Outside: Back Porch, Honda, Volvo, Trash or Recycling",
+        "Personal: Nails, Shave, Nose",
       ];
       day = [
         "day",
