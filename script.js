@@ -126,7 +126,7 @@ function arrayDay() {
       ];
       evening = ["evening", "Find Keys, Wallet, Phone"];
       break;
-    case 7:
+    case 0:
       morning = [
         "morning",
         "Laundry: Crib Sheets, Pillow Cases, Sheets, Covers, Hamper, Floor",
