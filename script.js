@@ -102,6 +102,7 @@ function arrayDay() {
         "Exercise Clothes",
         "Next Day Clothes",
       ];
+      break;
     case 6:
       morning = [
         "morning",
