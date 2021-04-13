@@ -21,7 +21,6 @@ function arrayDay() {
         "Dishwasher",
         "Smoothie",
         "Coffee",
-        "Clean From breakfast",
         "Lunch",
       ];
       day = [
@@ -30,8 +29,7 @@ function arrayDay() {
         "finances",
         "emails",
         "lesson plans",
-        "french",
-        "Ellis Reading",
+        "video",
         "Church",
         "Cleaning",
       ];
@@ -68,8 +66,7 @@ function arrayDay() {
         "Breakfast base",
         "Dishwasher",
         "Smoothie",
-        "Coffee",
-        "Clean From breakfast",
+        "Coffee"
         "Lunch",
       ];
       day = [
@@ -90,7 +87,6 @@ function arrayDay() {
         "cat food and water",
         "clean dining room",
         "computer room",
-        "charge headphones",
         "bathroom",
         "tea",
         "kitchen",
@@ -101,6 +97,7 @@ function arrayDay() {
         "Find Keys, Wallet, Phone",
         "Exercise Clothes",
         "Next Day Clothes",
+        "charge headphones",
       ];
       break;
     case 6:
@@ -127,7 +124,27 @@ function arrayDay() {
         "Make Lunches",
         "Make Dinners",
       ];
-      evening = ["evening", "Find Keys, Wallet, Phone"];
+      evening = [
+        "evening",
+        "water",
+        "milk",
+        "litter",
+        "laundry",
+        "cat food and water",
+        "clean dining room",
+        "computer room",
+        "bathroom",
+        "tea",
+        "kitchen",
+        "dishwasher",
+        "coffee maker",
+        "Prepare energy drink and water",
+        "Pack for school and baby",
+        "Find Keys, Wallet, Phone",
+        "Exercise Clothes",
+        "Next Day Clothes",
+        "charge headphones",
+      ];
       break;
     case 0:
       morning = [
@@ -166,14 +183,14 @@ function arrayDay() {
         "kitchen",
         "dishwasher",
         "coffee maker",
-        "charge headphones",
-        "charge keyboard",
-        "Find Keys, Wallet, Phone",
         "Prepare energy drink and water",
         "Pack for school and baby",
+        "Find Keys, Wallet, Phone",
         "Exercise Clothes",
         "Next Day Clothes",
+        "charge headphones",
       ];
+      break;
     default:
       morning = [];
       day = [];
