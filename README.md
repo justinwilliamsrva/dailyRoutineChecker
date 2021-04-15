@@ -8,7 +8,7 @@ I WANT to keep track of my daily routines
 SO THAT I can my personal and business life in order
 ```
 
-## Acceptance Crite
+## Acceptance Criteria
 
 ```
 GIVEN I am using a website to keep track of my tasks
