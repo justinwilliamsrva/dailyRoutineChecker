@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v2.1.2...v2.2.0) (2021-04-15)
+
+
+### Features
+
+* new card ([ad6db57](https://github.com/justinwilliamsrva/dailyRoutineChecker/commit/ad6db57bf5fa3fdbdadd3ec4c7e210b17ddf45ae))
+
 ### [2.1.2](https://github.com/justinwilliamsrva/dailyRoutineChecker/compare/v2.1.1...v2.1.2) (2021-04-15)
 
 
