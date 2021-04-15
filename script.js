@@ -66,7 +66,7 @@ function arrayDay() {
         "Breakfast base",
         "Dishwasher",
         "Smoothie",
-        "Coffee"
+        "Coffee",
         "Lunch",
       ];
       day = [
